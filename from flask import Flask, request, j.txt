@@ -1,0 +1,42 @@
+from flask import Flask, request, jsonify
+import openai
+import os
+
+app = Flask(__name__)
+
+# Replace this with your actual OpenAI API key or set it as an environment variable
+openai.api_key = os.getenv("OPENAI_API_KEY")
+
+@app.route("/")
+def home():
+    return "AI Humanizer is running."
+
+@app.route("/humanize", methods=["POST"])
+def humanize_text():
+    data = request.get_json()
+    text = data.get("text")
+
+    if not text:
+        return jsonify({"error": "No input text provided."}), 400
+
+    try:
+        prompt = f"""
+        Rewrite the following text to sound more naturally written by a human. Use varied sentence lengths, contractions, and a casual yet professional tone. Avoid repetitive phrases and make it feel authentic:
+
+        "{text}"
+
+        Humanized version:
+        """
+
+        response = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=[{"role": "user", "content": prompt}],
+            temperature=0.9,
+            max_tokens=700
+        )
+
+        humanized = response['choices'][0]['message']['content'].strip()
+        return jsonify({"humanized_text": humanized})
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
