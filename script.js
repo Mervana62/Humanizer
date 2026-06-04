@@ -251,7 +251,7 @@
      GLOBE.GL — Hero Globe
      ====================================================================== */
   function initGlobe() {
-    var mountEl = document.getElementById('globeMount');
+    var mountEl   = document.getElementById('globeMount');
     var loadingEl = document.getElementById('globeLoading');
 
     if (!mountEl || typeof Globe === 'undefined') {
@@ -259,43 +259,42 @@
       return;
     }
 
-    // Project locations (city markers)
+    // Project locations — city markers
     var cities = [
-      { lat: 33.89, lng: 35.50, name: 'Beirut, Lebanon',    type: 'hq' },
-      { lat: 24.68, lng: 46.72, name: 'Riyadh, Saudi Arabia', type: 'project' },
-      { lat: 25.20, lng: 55.27, name: 'Dubai, UAE',          type: 'project' },
-      { lat: 30.06, lng: 31.25, name: 'Cairo, Egypt',        type: 'project' },
-      { lat: 31.95, lng: 35.93, name: 'Amman, Jordan',       type: 'project' },
-      { lat: 36.19, lng: 37.16, name: 'Aleppo, Syria',       type: 'project' },
-      { lat: 15.55, lng: 32.53, name: 'Khartoum, Sudan',     type: 'project' },
-      { lat: 33.34, lng: 44.40, name: 'Baghdad, Iraq',       type: 'project' },
-      { lat: 48.85, lng:  2.35, name: 'Paris, France',       type: 'partner' },
-      { lat: 51.51, lng: -0.13, name: 'London, UK',          type: 'partner' },
+      { lat: 33.89, lng:  35.50, name: 'Beirut, Lebanon',       type: 'hq' },
+      { lat: 24.68, lng:  46.72, name: 'Riyadh, Saudi Arabia',  type: 'project' },
+      { lat: 25.20, lng:  55.27, name: 'Dubai, UAE',            type: 'project' },
+      { lat: 30.06, lng:  31.25, name: 'Cairo, Egypt',          type: 'project' },
+      { lat: 31.95, lng:  35.93, name: 'Amman, Jordan',         type: 'project' },
+      { lat: 36.19, lng:  37.16, name: 'Aleppo, Syria',         type: 'project' },
+      { lat: 15.55, lng:  32.53, name: 'Khartoum, Sudan',       type: 'project' },
+      { lat: 33.34, lng:  44.40, name: 'Baghdad, Iraq',         type: 'project' },
+      { lat: 48.85, lng:   2.35, name: 'Paris, France',         type: 'partner' },
+      { lat: 51.51, lng:  -0.13, name: 'London, UK',            type: 'partner' },
     ];
 
-    // Arcs between Beirut and project cities
+    // Arcs: Beirut → each city
     var arcs = cities
       .filter(function (c) { return c.type === 'project' || c.type === 'partner'; })
       .map(function (c) {
-        return {
-          startLat: 33.89, startLng: 35.50,
-          endLat:   c.lat,  endLng:   c.lng,
-          label:    c.name
-        };
+        return { startLat: 33.89, startLng: 35.50, endLat: c.lat, endLng: c.lng, label: c.name };
       });
 
-    var size = Math.min(mountEl.clientWidth, mountEl.clientHeight) || 480;
+    // Get rendered container size (wait until layout is done)
+    var rect = mountEl.getBoundingClientRect();
+    var size = Math.round(Math.min(rect.width, rect.height));
+    if (size < 100) size = 480; // layout not ready — use fallback
 
-    var globe = Globe({ animateIn: true })
-      (mountEl)
+    // Initialise globe
+    var globe = Globe({ animateIn: true })(mountEl)
       .width(size)
       .height(size)
       .backgroundColor('rgba(0,0,0,0)')
       .atmosphereColor('#00d4ff')
-      .atmosphereAltitude(0.15)
+      .atmosphereAltitude(0.18)
+      // Earth dark texture — bundled with Globe.gl's three-globe dependency
       .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-dark.jpg')
-      // Country polygons from Natural Earth via Globe.gl default
-      .hexPolygonsData([])
+      // City markers
       .pointsData(cities)
       .pointLat('lat')
       .pointLng('lng')
@@ -304,42 +303,70 @@
         if (d.type === 'partner') return '#a855f7';
         return '#00d4ff';
       })
-      .pointAltitude(function (d) { return d.type === 'hq' ? 0.06 : 0.02; })
-      .pointRadius(function (d) { return d.type === 'hq' ? 0.5 : 0.3; })
-      .pointLabel(function (d) { return '<div style="font-size:11px;color:#e8edf4;background:rgba(5,16,30,0.9);padding:4px 8px;border-radius:4px;border:1px solid rgba(201,162,39,0.3)">' + d.name + '</div>'; })
+      .pointAltitude(function (d) { return d.type === 'hq' ? 0.08 : 0.025; })
+      .pointRadius(function (d) { return d.type === 'hq' ? 0.55 : 0.32; })
+      .pointLabel(function (d) {
+        return '<div style="font-size:11px;color:#e8edf4;background:rgba(5,16,30,0.92);'
+             + 'padding:4px 9px;border-radius:4px;border:1px solid rgba(201,162,39,0.35);white-space:nowrap">'
+             + d.name + '</div>';
+      })
+      // Animated arcs
       .arcsData(arcs)
       .arcStartLat('startLat').arcStartLng('startLng')
       .arcEndLat('endLat').arcEndLng('endLng')
-      .arcColor(function () { return ['rgba(201,162,39,0)', 'rgba(201,162,39,0.7)', 'rgba(0,212,255,0.7)', 'rgba(0,212,255,0)']; })
-      .arcDashLength(0.4)
-      .arcDashGap(0.15)
-      .arcDashAnimateTime(2500)
-      .arcStroke(0.4)
-      .arcAltitudeAutoScale(0.3);
+      .arcColor(function () {
+        return ['rgba(201,162,39,0)', 'rgba(201,162,39,0.75)', 'rgba(0,212,255,0.75)', 'rgba(0,212,255,0)'];
+      })
+      .arcDashLength(0.38)
+      .arcDashGap(0.12)
+      .arcDashAnimateTime(2200)
+      .arcStroke(0.45)
+      .arcAltitudeAutoScale(0.28);
 
     // Auto-rotate
-    globe.controls().autoRotate = true;
-    globe.controls().autoRotateSpeed = 0.4;
-    globe.controls().enableZoom = false;
+    globe.controls().autoRotate      = true;
+    globe.controls().autoRotateSpeed = 0.45;
+    globe.controls().enableZoom      = false;
 
-    // Initial camera position — centered over MENA region
-    globe.pointOfView({ lat: 26, lng: 35, altitude: 2.2 }, 0);
+    // Point of view — MENA region centered
+    globe.pointOfView({ lat: 25, lng: 38, altitude: 2.1 }, 0);
 
-    // Hide loading indicator
+    // Load Natural Earth country outlines (public domain — naturalearth.com)
+    var countriesUrl = 'https://raw.githubusercontent.com/vasturiano/globe.gl/master/example/datasets/ne_110m_admin_0_countries.geojson';
+    fetch(countriesUrl)
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        globe
+          .polygonsData(data.features)
+          .polygonGeoJsonGeometry(function (d) { return d.geometry; })
+          .polygonCapColor(function ()   { return 'rgba(8,22,42,0.75)'; })
+          .polygonSideColor(function ()  { return 'rgba(0,212,255,0.04)'; })
+          .polygonStrokeColor(function () { return 'rgba(0,212,255,0.28)'; })
+          .polygonAltitude(0.003);
+      })
+      .catch(function () {
+        // Country outlines unavailable — globe still renders with earth texture
+      });
+
+    // Hide loading indicator once globe canvas is in DOM
     if (loadingEl) loadingEl.style.display = 'none';
 
-    // Handle resize
+    // Resize handler
     window.addEventListener('resize', function () {
-      var s = Math.min(mountEl.clientWidth, mountEl.clientHeight) || 480;
-      globe.width(s).height(s);
+      var r  = mountEl.getBoundingClientRect();
+      var s  = Math.round(Math.min(r.width, r.height));
+      if (s > 80) globe.width(s).height(s);
     }, { passive: true });
   }
 
-  // Init globe after page load
+  // Init globe — wait for full layout
   if (document.readyState === 'complete') {
-    initGlobe();
+    // Use rAF to ensure layout is calculated
+    requestAnimationFrame(function () { requestAnimationFrame(initGlobe); });
   } else {
-    window.addEventListener('load', initGlobe);
+    window.addEventListener('load', function () {
+      requestAnimationFrame(function () { requestAnimationFrame(initGlobe); });
+    });
   }
 
   /* =========================================================================

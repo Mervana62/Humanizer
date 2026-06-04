@@ -117,9 +117,18 @@
       <p>Live earthquake events ingested from the USGS Earthquake Hazards Program API. Events styled by magnitude and depth using industry-standard classification thresholds.</p>
     </div>
 
+    <!-- Visible data source chips -->
+    <div class="seismic-sources" aria-label="Data sources used in this section">
+      <span class="ss-label">Data sources:</span>
+      <a href="https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php" target="_blank" rel="noopener noreferrer" class="src-chip live">USGS Earthquake API — Live feed</a>
+      <a href="https://www.emsc-csem.org" target="_blank" rel="noopener noreferrer" class="src-chip ref">EMSC Regional Catalogue</a>
+      <a href="https://www.globalquakemodel.org/gem" target="_blank" rel="noopener noreferrer" class="src-chip meth">GEM Global Seismic Hazard</a>
+      <a href="https://openquake.org" target="_blank" rel="noopener noreferrer" class="src-chip meth">OpenQuake Methodology</a>
+    </div>
+
     <div class="seismic-layout">
       <div class="seismic-map-wrap">
-        <div id="seismicMap" aria-label="Live USGS earthquake map"></div>
+        <div id="seismicMap" aria-label="Live USGS earthquake map — past 7 days"></div>
         <div class="map-meta">
           <div class="mm-source">
             Source: <a href="https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php" target="_blank" rel="noopener noreferrer">USGS Earthquake Hazards Program</a> · Past 7 days · Updated on page load
@@ -997,6 +1006,82 @@
   </div>
 </section>
 
+<!-- ====================================================== DATA ACCURACY & SOURCES -->
+<section id="data-accuracy" class="section dark-section" aria-labelledby="da-h2">
+  <div class="container">
+    <div class="sec-hdr">
+      <span class="sec-tag">Transparency</span>
+      <h2 id="da-h2">Data Accuracy &amp; Sources</h2>
+      <p>GeoElite Sphere clearly distinguishes between live data feeds, authoritative open reference datasets, workflow demonstrations, and client-provided GIS layers. No data is fabricated or used as a placeholder.</p>
+    </div>
+
+    <div class="da-grid">
+      <div class="da-card live-card reveal">
+        <div class="da-badge live-badge">Live / Real-time</div>
+        <h3>Live Data Feeds</h3>
+        <p>Fetched on page load from public APIs. Accuracy and availability are those of the source provider. These are not static or invented.</p>
+        <ul>
+          <li>
+            <strong>USGS Earthquake Hazards Program</strong> — Global seismic events, past 7 days. Fetched from the public GeoJSON feed at earthquake.usgs.gov on every page load. Earthquake locations, magnitudes, and focal depths are as reported by USGS seismograph networks.
+            <br><a href="https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php" target="_blank" rel="noopener noreferrer">earthquake.usgs.gov/earthquakes/feed ↗</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="da-card ref-card reveal">
+        <div class="da-badge ref-badge">Open Reference Datasets</div>
+        <h3>Authoritative Open Datasets</h3>
+        <p>Publicly available datasets referenced in methodology panels. Accessed per project via official data portals — not live-streamed on this page.</p>
+        <ul>
+          <li>Copernicus DEM GLO-30 &amp; CLMS flood layers — European Space Agency / European Commission</li>
+          <li>JRC Global Surface Water / GHSL — European Commission Joint Research Centre</li>
+          <li>WorldPop 100m population grids — University of Southampton</li>
+          <li>Natural Earth vector data — public domain</li>
+          <li>OpenStreetMap — ODbL license, OSM contributors</li>
+          <li>Open Infrastructure Map — OSM power/telecom layers</li>
+          <li>GEM Global Seismic Hazard Model — globalquakemodel.org</li>
+          <li>EMSC Seismological Catalogue — emsc-csem.org</li>
+          <li>IUCN World Database of Protected Areas (WDPA)</li>
+          <li>NASA SRTM DEM, LANCE FIRMS, MODIS — earthdata.nasa.gov</li>
+        </ul>
+      </div>
+
+      <div class="da-card demo-card reveal">
+        <div class="da-badge demo-badge">Workflow Demonstration</div>
+        <h3>Demonstrative Visualizations</h3>
+        <p>Conceptual diagrams and process illustrations representing standard GIS methodology. Not derived from a specific project dataset — applicable to real client data when engaged.</p>
+        <ul>
+          <li><strong>Remote Sensing comparison slider</strong> — Illustrative spectral pattern grid. Real projects use Sentinel-2 (ESA), Maxar WorldView, or SAR backscatter imagery.</li>
+          <li><strong>BIM-GIS pipeline diagram</strong> — Workflow architecture based on ISO 16739 IFC standard. Actual pipelines are built in FME and ArcGIS Pro per project.</li>
+          <li><strong>Digital Twin layer stack</strong> — Systems architecture reference. Live IoT / SCADA telemetry is sourced exclusively from the client's own infrastructure. GeoElite Sphere does not fabricate sensor readings.</li>
+          <li><strong>Site Selection criteria matrix</strong> — Example weight distribution for a generic scenario. Real projects calibrate weights through stakeholder consultation and sensitivity analysis.</li>
+          <li><strong>Hero globe city markers</strong> — Representative project and partner locations. Data source: Natural Earth (public domain), Globe.gl (MIT license).</li>
+        </ul>
+      </div>
+
+      <div class="da-card client-card reveal">
+        <div class="da-badge client-badge">Client-Provided Layers</div>
+        <h3>Client-Provided GIS Data</h3>
+        <p>The following layer types are required from the client or national data custodian. GeoElite Sphere does not substitute these with generic or invented data.</p>
+        <ul>
+          <li>Cadastral parcel boundaries and land ownership records</li>
+          <li>Municipal utility network geometry (water supply, sewer, electrical distribution, telecom)</li>
+          <li>Building permits, planning applications, and zoning files</li>
+          <li>Facility asset registries and maintenance history (COBie / EAM exports)</li>
+          <li>Live IoT and SCADA sensor telemetry for digital twin deployments</li>
+          <li>National active fault catalogues (for site-specific PSHA)</li>
+          <li>Classified or restricted infrastructure locations</li>
+          <li>Survey GPS control points for BIM georeferencing</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="da-fault-note" role="note">
+      <strong>Seismic Fault Line Policy:</strong> This platform does not display seismic fault lines unless validated active fault geometry from the <a href="https://www.globalquakemodel.org/gem" target="_blank" rel="noopener noreferrer">GEM Global Active Faults Database</a> or a national geological survey is specifically loaded for a client engagement. Fault line delineation requires a peer-reviewed active fault catalogue — not a generic polygon layer. For probabilistic seismic hazard analysis (PSHA), GeoElite Sphere references <a href="https://openquake.org" target="_blank" rel="noopener noreferrer">GEM OpenQuake Engine methodology</a> and the <a href="https://www.emsc-csem.org" target="_blank" rel="noopener noreferrer">EMSC regional seismicity catalogue</a>.
+    </div>
+  </div>
+</section>
+
 <!-- ====================================================== 15. CONTACT -->
 <section id="contact" class="section" aria-labelledby="contact-h2">
   <div class="container">
@@ -1059,7 +1144,7 @@
         <p class="ft-loc">Beirut, Lebanon · Remote &amp; International</p>
       </div>
       <nav class="footer-nav" aria-label="Platform sections"><h4>Platform</h4><ul><li><a href="#seismic">Live Seismic Feed</a></li><li><a href="#flood-climate">Flood &amp; Climate</a></li><li><a href="#infrastructure">Infrastructure GIS</a></li><li><a href="#remote-sensing">Remote Sensing</a></li><li><a href="#bim-gis">BIM-GIS</a></li><li><a href="#digital-twin">Digital Twin</a></li></ul></nav>
-      <nav class="footer-nav" aria-label="Knowledge sections"><h4>Knowledge</h4><ul><li><a href="#publications">Publications</a></li><li><a href="#training">Training Academy</a></li><li><a href="#books">Books &amp; Guides</a></li><li><a href="#municipal">Municipal GIS</a></li><li><a href="#waste-gis">Waste GIS</a></li><li><a href="#experts">Our Experts</a></li></ul></nav>
+      <nav class="footer-nav" aria-label="Knowledge sections"><h4>Knowledge</h4><ul><li><a href="#publications">Publications</a></li><li><a href="#training">Training Academy</a></li><li><a href="#books">Books &amp; Guides</a></li><li><a href="#municipal">Municipal GIS</a></li><li><a href="#waste-gis">Waste GIS</a></li><li><a href="#experts">Our Experts</a></li><li><a href="#data-accuracy">Data &amp; Sources</a></li></ul></nav>
       <div class="footer-attrib-col">
         <h4>Open Data Sources</h4>
         <ul class="footer-attrib">
@@ -1069,9 +1154,12 @@
           <li><a href="https://www.worldpop.org" target="_blank" rel="noopener noreferrer">WorldPop (Univ. of Southampton)</a></li>
           <li><a href="https://www.openstreetmap.org" target="_blank" rel="noopener noreferrer">OpenStreetMap contributors (ODbL)</a></li>
           <li><a href="https://www.naturalearthdata.com" target="_blank" rel="noopener noreferrer">Natural Earth (public domain)</a></li>
+          <li><a href="https://www.emsc-csem.org" target="_blank" rel="noopener noreferrer">EMSC — European-Mediterranean Seismological Centre</a></li>
+          <li><a href="https://www.globalquakemodel.org/gem" target="_blank" rel="noopener noreferrer">GEM Global Seismic Hazard Model</a></li>
+          <li><a href="https://openinframap.org" target="_blank" rel="noopener noreferrer">Open Infrastructure Map (OSM-based)</a></li>
           <li><a href="https://carto.com/attributions" target="_blank" rel="noopener noreferrer">CARTO basemap tiles</a></li>
           <li><a href="https://leafletjs.com" target="_blank" rel="noopener noreferrer">Leaflet.js (BSD-2-Clause)</a></li>
-          <li><a href="https://globe.gl" target="_blank" rel="noopener noreferrer">Globe.gl (MIT)</a></li>
+          <li><a href="https://globe.gl" target="_blank" rel="noopener noreferrer">Globe.gl (MIT) — vasturiano</a></li>
         </ul>
         <p class="footer-live-note">Live data (USGS feed) depends on public API availability. All external data subject to respective provider terms. This platform is hosted on GitHub Pages as a static site — no backend, no proprietary APIs.</p>
       </div>
