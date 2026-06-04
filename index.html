@@ -3,15 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GeoElite Sphere | Geospatial Intelligence Platform</title>
-  <meta name="description" content="GeoElite Sphere — geospatial intelligence for infrastructure, resilience, digital twins, BIM-GIS, and urban systems. Live seismic feeds, flood analytics, remote sensing, and municipal GIS." />
-  <meta name="keywords" content="GIS, BIM-GIS, GeoAI, digital twin, remote sensing, ArcGIS Enterprise, municipal GIS, USGS earthquake, seismic hazard, Lebanon, MENA" />
-  <meta property="og:title" content="GeoElite Sphere | Geospatial Intelligence Platform" />
+  <title>GeoElite Sphere | Expert Geospatial Intelligence Platform</title>
+  <meta name="description" content="GeoElite Sphere — expert geospatial intelligence platform. Live seismic feeds, MapLibre interactive maps, BIM-GIS integration, digital twins, and GeoAI for infrastructure and resilience." />
+  <meta name="keywords" content="GIS, BIM-GIS, GeoAI, digital twin, remote sensing, MapLibre, ArcGIS Enterprise, municipal GIS, USGS earthquake, seismic hazard, Lebanon, MENA, infrastructure mapping" />
+  <meta property="og:title" content="GeoElite Sphere | Expert Geospatial Intelligence Platform" />
+  <meta property="og:description" content="Live seismic feeds, interactive GIS lab, BIM-GIS integration, digital twins, and GeoAI for infrastructure and resilience." />
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.5.2/dist/maplibre-gl.css" crossorigin="" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -20,7 +21,7 @@
 <header class="navbar" id="navbar" role="banner">
   <div class="nav-inner">
     <a href="#hero" class="nav-logo" aria-label="GeoElite Sphere home">
-      <svg class="logo-globe" width="32" height="32" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+      <svg class="logo-globe" width="28" height="28" viewBox="0 0 36 36" fill="none" aria-hidden="true">
         <circle cx="18" cy="18" r="15" stroke="#c9a227" stroke-width="1.4" fill="none"/>
         <ellipse cx="18" cy="18" rx="6" ry="15" stroke="#00d4ff" stroke-width="1" fill="none"/>
         <line x1="3" y1="18" x2="33" y2="18" stroke="#c9a227" stroke-width="0.8" stroke-dasharray="3 2"/>
@@ -28,944 +29,970 @@
       </svg>
       <span class="logo-name">GeoElite<span class="gold"> Sphere</span></span>
     </a>
-    <button class="nav-burger" id="navBurger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
+    <button class="nav-burger" id="navBurger" aria-expanded="false" aria-controls="navMenu" aria-label="Toggle navigation">
       <span></span><span></span><span></span>
     </button>
-    <nav class="nav-links" id="navLinks" aria-label="Main navigation">
-      <a href="#seismic">Seismic</a>
-      <a href="#flood-climate">Flood &amp; Risk</a>
-      <a href="#infrastructure">Infrastructure</a>
-      <a href="#remote-sensing">Remote Sensing</a>
-      <a href="#bim-gis">BIM-GIS</a>
-      <a href="#digital-twin">Digital Twin</a>
-      <a href="#municipal">Municipal GIS</a>
-      <a href="#publications">Publications</a>
-      <a href="#training">Training</a>
-      <a href="#contact" class="nav-book">Contact</a>
+    <nav class="nav-menu" id="navMenu" role="navigation" aria-label="Main navigation">
+      <a href="#gislab" class="nav-link">GIS Lab</a>
+      <a href="#seismic" class="nav-link">Seismic</a>
+      <a href="#infrastructure" class="nav-link">Infrastructure</a>
+      <a href="#remote-sensing" class="nav-link">Remote Sensing</a>
+      <a href="#bim-gis" class="nav-link">BIM-GIS</a>
+      <a href="#digital-twin" class="nav-link">Digital Twin</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#publications" class="nav-link">Publications</a>
+      <a href="#training" class="nav-link">Training</a>
+      <a href="#contact" class="nav-link nav-cta">Contact</a>
     </nav>
   </div>
 </header>
 
-<!-- ====================================================== 1. HERO -->
+<!-- ====================================================== HERO -->
 <section id="hero" class="hero-section" aria-labelledby="hero-h1">
-  <div class="hero-bg" aria-hidden="true"></div>
-  <div class="container hero-layout">
+  <div class="hero-layout">
     <div class="hero-left">
-      <div class="hero-status-strip" aria-label="System status">
-        <span class="hs-dot" aria-hidden="true"></span>
-        <span class="hs-label">Platform Active</span>
-        <span class="hs-sep" aria-hidden="true">|</span>
-        <span class="hs-item">USGS Seismic Feed</span>
-        <span class="hs-sep" aria-hidden="true">|</span>
-        <span class="hs-item">Copernicus Reference</span>
-        <span class="hs-sep" aria-hidden="true">|</span>
-        <span class="hs-item">OpenStreetMap</span>
+      <div class="hero-tag">
+        <span class="htag-dot" aria-hidden="true"></span>
+        <span>Expert Geospatial Intelligence</span>
       </div>
-      <h1 id="hero-h1" class="hero-h1">
-        Geospatial Intelligence<br>
-        for <em>Infrastructure,<br>Resilience &amp; Urban Systems</em>
+      <h1 id="hero-h1">
+        <span class="h1-line">Spatial Data.</span>
+        <span class="h1-line gold">Real Intelligence.</span>
+        <span class="h1-line thin">Infrastructure &amp; Resilience.</span>
       </h1>
       <p class="hero-sub">
-        GIS systems engineering, BIM-GIS integration, GeoAI, remote sensing, digital twins, and disaster risk intelligence — delivered to governments, municipalities, NGOs, and engineering firms across the MENA region and beyond.
+        BIM-GIS integration, live seismic analysis, flood risk modelling, GeoAI,
+        digital twins, and municipal GIS — built on real data, not decoration.
       </p>
-      <div class="hero-btns">
-        <a href="#seismic" class="btn btn-gold">Explore Live Seismic Data</a>
-        <a href="#contact" class="btn btn-ghost">Book Consultation</a>
+      <div class="hero-stats">
+        <div class="hstat"><span class="hstat-val" id="statEq">—</span><span class="hstat-lbl">Earthquakes this week</span></div>
+        <div class="hstat"><span class="hstat-val">12+</span><span class="hstat-lbl">Countries served</span></div>
+        <div class="hstat"><span class="hstat-val">40+</span><span class="hstat-lbl">GIS projects delivered</span></div>
       </div>
-      <div class="hero-indicators" role="list" aria-label="Platform capabilities">
-        <div class="hi-item" role="listitem">
-          <span class="hi-dot" style="background:#00d4ff" aria-hidden="true"></span>
-          <span>Real-time USGS Seismic Ingestion</span>
-        </div>
-        <div class="hi-item" role="listitem">
-          <span class="hi-dot" style="background:#c9a227" aria-hidden="true"></span>
-          <span>Copernicus / JRC Flood Analytics</span>
-        </div>
-        <div class="hi-item" role="listitem">
-          <span class="hi-dot" style="background:#4ade80" aria-hidden="true"></span>
-          <span>SAR &amp; Optical Change Detection</span>
-        </div>
-        <div class="hi-item" role="listitem">
-          <span class="hi-dot" style="background:#a855f7" aria-hidden="true"></span>
-          <span>BIM-GIS &amp; Digital Twin Pipelines</span>
+      <div class="hero-btns">
+        <a href="#gislab" class="btn btn-gold">Explore GIS Lab</a>
+        <a href="#projects" class="btn btn-ghost">View Projects</a>
+      </div>
+      <div class="hero-platforms">
+        <span class="hp-lbl">Platform expertise:</span>
+        <div class="hp-chips">
+          <span>ArcGIS Pro</span><span>ArcGIS Enterprise</span><span>MapLibre GL</span>
+          <span>QGIS</span><span>FME</span><span>Google Earth Engine</span>
         </div>
       </div>
     </div>
-    <div class="hero-right" id="globeMount" aria-label="Rotating globe showing project locations">
-      <div class="globe-loading" id="globeLoading" aria-live="polite">
-        <div class="globe-spinner" aria-hidden="true"></div>
-        <p>Loading globe…</p>
+    <div class="hero-right">
+      <div class="globe-wrap">
+        <div id="globeMount" aria-label="3D global GIS operations map" role="img"></div>
+        <div class="globe-loading" id="globeLoading" aria-live="polite">
+          <div class="gl-spinner" aria-hidden="true"></div>
+          <span>Initialising globe…</span>
+        </div>
+      </div>
+      <div class="hero-panels" aria-hidden="true">
+        <div class="hpanel top-left">GIS Enterprise</div>
+        <div class="hpanel top-right">Seismic Intel</div>
+        <div class="hpanel bot-left">BIM-GIS</div>
+        <div class="hpanel bot-right">Digital Twins</div>
       </div>
     </div>
   </div>
-  <div class="hero-data-strip" aria-label="Data sources">
-    <span>Data sources:</span>
-    <a href="https://earthquake.usgs.gov" target="_blank" rel="noopener noreferrer">USGS Earthquake API</a>
-    <a href="https://www.copernicus.eu" target="_blank" rel="noopener noreferrer">Copernicus Programme</a>
-    <a href="https://jeodpp.jrc.ec.europa.eu" target="_blank" rel="noopener noreferrer">JRC</a>
-    <a href="https://www.openstreetmap.org" target="_blank" rel="noopener noreferrer">OpenStreetMap</a>
-    <a href="https://www.naturalearthdata.com" target="_blank" rel="noopener noreferrer">Natural Earth</a>
+  <div class="hero-scroll-hint" aria-hidden="true">
+    <span>Scroll to explore</span>
+    <div class="scroll-arrow"></div>
   </div>
 </section>
 
-<!-- ====================================================== 2. SEISMIC INTELLIGENCE -->
-<section id="seismic" class="section dark-section" aria-labelledby="seismic-h2">
+<!-- ====================================================== SERVICES STRIP -->
+<section class="services-strip" aria-label="Core service areas">
+  <div class="ss-inner">
+    <div class="ss-item reveal"><span class="ss-dot" aria-hidden="true"></span><span>Seismic &amp; Geotechnical GIS</span></div>
+    <div class="ss-item reveal"><span class="ss-dot" aria-hidden="true"></span><span>BIM-GIS Integration</span></div>
+    <div class="ss-item reveal"><span class="ss-dot" aria-hidden="true"></span><span>Digital Twins</span></div>
+    <div class="ss-item reveal"><span class="ss-dot" aria-hidden="true"></span><span>Flood &amp; Climate Risk</span></div>
+    <div class="ss-item reveal"><span class="ss-dot" aria-hidden="true"></span><span>Remote Sensing</span></div>
+    <div class="ss-item reveal"><span class="ss-dot" aria-hidden="true"></span><span>GeoAI &amp; Deep Learning</span></div>
+    <div class="ss-item reveal"><span class="ss-dot" aria-hidden="true"></span><span>Municipal GIS</span></div>
+    <div class="ss-item reveal"><span class="ss-dot" aria-hidden="true"></span><span>Infrastructure Mapping</span></div>
+  </div>
+</section>
+
+<!-- ====================================================== LIVE GIS LAB -->
+<section id="gislab" class="section gislab-section" aria-labelledby="gislab-h2">
+  <div class="container">
+    <div class="sec-hdr">
+      <span class="sec-tag">Interactive Platform</span>
+      <h2 id="gislab-h2">Live GIS Lab</h2>
+      <p>Six embedded interactive map demonstrations — real APIs, real methodology, clearly labelled data sources.</p>
+    </div>
+
+    <!-- Tab bar -->
+    <div class="gislab-tabs" role="tablist" aria-label="GIS Lab demonstrations">
+      <button class="glt active" role="tab" aria-selected="true" aria-controls="glp-seismic" id="glt-seismic" data-map="seismic">
+        <span class="glt-dot live-dot" aria-hidden="true"></span>Seismic Intel
+      </button>
+      <button class="glt" role="tab" aria-selected="false" aria-controls="glp-infra" id="glt-infra" data-map="infra">
+        <span class="glt-dot demo-dot" aria-hidden="true"></span>Infrastructure
+      </button>
+      <button class="glt" role="tab" aria-selected="false" aria-controls="glp-municipal" id="glt-municipal" data-map="municipal">
+        <span class="glt-dot demo-dot" aria-hidden="true"></span>Municipal GIS
+      </button>
+      <button class="glt" role="tab" aria-selected="false" aria-controls="glp-waste" id="glt-waste" data-map="waste">
+        <span class="glt-dot demo-dot" aria-hidden="true"></span>Waste Routing
+      </button>
+      <button class="glt" role="tab" aria-selected="false" aria-controls="glp-sites" id="glt-sites" data-map="sites">
+        <span class="glt-dot demo-dot" aria-hidden="true"></span>Site Selection
+      </button>
+      <button class="glt" role="tab" aria-selected="false" aria-controls="glp-rs" id="glt-rs" data-map="rs">
+        <span class="glt-dot ref-dot" aria-hidden="true"></span>Remote Sensing
+      </button>
+    </div>
+
+    <!-- Panel 1: Seismic -->
+    <div class="gislab-panel active" role="tabpanel" id="glp-seismic" aria-labelledby="glt-seismic">
+      <div class="glp-layout">
+        <div class="glp-map-wrap">
+          <div id="gl-map-seismic" class="gl-map" aria-label="Interactive seismic intelligence map"></div>
+          <div class="gl-status-bar" id="seis-status">
+            <span class="status-badge status-live">&#9679; USGS Live</span>
+            <span id="seis-count">Loading earthquakes…</span>
+            <span class="status-attrib">© OpenStreetMap contributors © CARTO | USGS Earthquake Hazards Program</span>
+          </div>
+        </div>
+        <aside class="gl-sidebar" aria-label="Seismic controls and data">
+          <div class="gl-sidebar-title">Seismic Intelligence</div>
+          <div class="gl-controls">
+            <div class="glc-group">
+              <div class="glc-label">Layers</div>
+              <label class="gl-toggle">
+                <input type="checkbox" id="tog-seismic-quakes" checked /> <span>USGS Earthquakes (live)</span>
+                <span class="badge-live">Live</span>
+              </label>
+              <label class="gl-toggle">
+                <input type="checkbox" id="tog-seismic-boundary" checked /> <span>Lebanon boundary</span>
+                <span class="badge-ref">Ref</span>
+              </label>
+              <label class="gl-toggle">
+                <input type="checkbox" id="tog-seismic-cities" checked /> <span>Major cities</span>
+                <span class="badge-ref">Ref</span>
+              </label>
+              <div class="gl-disabled-layer">
+                <span class="gl-disabled-icon" aria-hidden="true">&#8856;</span>
+                <span>Fault geometry</span>
+                <span class="badge-req">Requires dataset</span>
+              </div>
+            </div>
+            <div class="glc-group">
+              <div class="glc-label">Magnitude filter</div>
+              <div class="mag-filter">
+                <input type="range" id="magFilter" min="1" max="7" step="0.5" value="1" class="mag-slider" aria-label="Minimum magnitude" />
+                <span class="mag-val">M &#8805; <span id="magVal">1.0</span></span>
+              </div>
+            </div>
+            <div class="glc-group">
+              <div class="glc-label">Depth legend</div>
+              <div class="depth-legend">
+                <div class="dl-row"><span class="dl-swatch" style="background:#00d4ff"></span><span>0–30 km shallow</span></div>
+                <div class="dl-row"><span class="dl-swatch" style="background:#f59e0b"></span><span>30–70 km</span></div>
+                <div class="dl-row"><span class="dl-swatch" style="background:#ef4444"></span><span>70+ km deep</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="gl-event-list" aria-label="Recent earthquake events">
+            <div class="gel-title">Recent events</div>
+            <div id="glSeisEventItems"><div class="gel-loading">Fetching USGS data…</div></div>
+          </div>
+          <div class="gl-methodology-note">
+            <strong>Fault Line Policy:</strong> Fault geometry requires upload of the
+            <a href="https://www.globalquakemodel.org/gem" target="_blank" rel="noopener noreferrer">GEM Global Active Faults Database</a>
+            or a validated national geological survey dataset. No fault lines are fabricated.
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <!-- Panel 2: Infrastructure -->
+    <div class="gislab-panel" role="tabpanel" id="glp-infra" aria-labelledby="glt-infra" hidden>
+      <div class="glp-layout">
+        <div class="glp-map-wrap">
+          <div id="gl-map-infra" class="gl-map" aria-label="Infrastructure intelligence map"></div>
+          <div class="gl-status-bar">
+            <span class="status-badge status-demo">&#9679; Demonstration</span>
+            <span>Open Infrastructure methodology — demonstration layers, OSM data model</span>
+            <span class="status-attrib">© OpenStreetMap contributors © CARTO</span>
+          </div>
+        </div>
+        <aside class="gl-sidebar" aria-label="Infrastructure controls">
+          <div class="gl-sidebar-title">Infrastructure Intelligence</div>
+          <div class="gl-controls">
+            <div class="glc-group">
+              <div class="glc-label">Layers</div>
+              <label class="gl-toggle"><input type="checkbox" id="tog-infra-power" checked /> <span>Power lines</span><span class="badge-osm">OSM model</span></label>
+              <label class="gl-toggle"><input type="checkbox" id="tog-infra-substations" checked /> <span>Power substations</span><span class="badge-osm">OSM model</span></label>
+              <label class="gl-toggle"><input type="checkbox" id="tog-infra-roads" checked /> <span>Strategic roads</span><span class="badge-osm">OSM model</span></label>
+              <label class="gl-toggle"><input type="checkbox" id="tog-infra-ports" checked /> <span>Ports &amp; terminals</span><span class="badge-osm">OSM model</span></label>
+              <label class="gl-toggle"><input type="checkbox" id="tog-infra-telecom" checked /> <span>Telecom nodes</span><span class="badge-demo-sm">Demo</span></label>
+            </div>
+          </div>
+          <div class="gl-info-panel">
+            <div class="gel-title">Use cases</div>
+            <ul class="gl-use-cases">
+              <li>Emergency response planning</li>
+              <li>Critical infrastructure exposure</li>
+              <li>Site selection proximity analysis</li>
+              <li>Utility corridor planning</li>
+              <li>Municipal resilience assessment</li>
+            </ul>
+            <div class="gl-data-note">Demonstration data follows the OpenStreetMap power/telecom tag schema. Real projects use live OSM Overpass API exports or client-provided utility network GIS.</div>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <!-- Panel 3: Municipal GIS -->
+    <div class="gislab-panel" role="tabpanel" id="glp-municipal" aria-labelledby="glt-municipal" hidden>
+      <div class="glp-layout">
+        <div class="glp-map-wrap">
+          <div id="gl-map-municipal" class="gl-map" aria-label="Municipal GIS dashboard map"></div>
+          <div class="gl-status-bar">
+            <span class="status-badge status-demo">&#9679; Demonstration</span>
+            <span>Municipal GIS workflow — demonstration parcels and assets</span>
+            <span class="status-attrib">© OpenStreetMap contributors © CARTO</span>
+          </div>
+        </div>
+        <aside class="gl-sidebar" aria-label="Municipal GIS controls">
+          <div class="gl-sidebar-title">Municipal GIS</div>
+          <div class="gl-controls">
+            <div class="glc-group">
+              <div class="glc-label">Layers</div>
+              <label class="gl-toggle"><input type="checkbox" id="tog-mun-parcels" checked /> <span>Cadastral parcels</span><span class="badge-demo-sm">Demo</span></label>
+              <label class="gl-toggle"><input type="checkbox" id="tog-mun-buildings" checked /> <span>Building footprints</span><span class="badge-demo-sm">Demo</span></label>
+              <label class="gl-toggle"><input type="checkbox" id="tog-mun-roads" checked /> <span>Road network</span><span class="badge-demo-sm">Demo</span></label>
+              <label class="gl-toggle"><input type="checkbox" id="tog-mun-services" checked /> <span>Service zones</span><span class="badge-demo-sm">Demo</span></label>
+              <label class="gl-toggle"><input type="checkbox" id="tog-mun-survey" checked /> <span>Survey points</span><span class="badge-demo-sm">Demo</span></label>
+            </div>
+          </div>
+          <div class="gl-info-panel">
+            <div class="gel-title">Dashboard summary</div>
+            <div class="gl-kpi-grid">
+              <div class="gl-kpi"><span class="kpi-val">284</span><span class="kpi-lbl">Parcels</span></div>
+              <div class="gl-kpi"><span class="kpi-val">156</span><span class="kpi-lbl">Buildings</span></div>
+              <div class="gl-kpi"><span class="kpi-val">4</span><span class="kpi-lbl">Zones</span></div>
+              <div class="gl-kpi"><span class="kpi-val">62</span><span class="kpi-lbl">Survey pts</span></div>
+            </div>
+            <div class="gl-data-note">Demonstrative data modelled on ArcGIS Enterprise / Survey123 municipal workflow. Actual project layers are client-provided cadastral and utility data.</div>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <!-- Panel 4: Waste Routing -->
+    <div class="gislab-panel" role="tabpanel" id="glp-waste" aria-labelledby="glt-waste" hidden>
+      <div class="glp-layout">
+        <div class="glp-map-wrap">
+          <div id="gl-map-waste" class="gl-map" aria-label="Solid waste routing map"></div>
+          <div class="gl-status-bar">
+            <span class="status-badge status-demo">&#9679; Demonstration</span>
+            <span>Solid waste GIS — demonstration routing based on Al Fayhaa methodology</span>
+            <span class="status-attrib">© OpenStreetMap contributors © CARTO</span>
+          </div>
+        </div>
+        <aside class="gl-sidebar" aria-label="Waste routing controls">
+          <div class="gl-sidebar-title">Solid Waste Routing</div>
+          <div class="gl-controls">
+            <div class="glc-group">
+              <div class="glc-label">Layers</div>
+              <label class="gl-toggle"><input type="checkbox" id="tog-waste-zones" checked /> <span>Collection zones</span><span class="badge-demo-sm">Demo</span></label>
+              <label class="gl-toggle"><input type="checkbox" id="tog-waste-routes" checked /> <span>Collection routes</span><span class="badge-demo-sm">Demo</span></label>
+              <label class="gl-toggle"><input type="checkbox" id="tog-waste-transfer" checked /> <span>Transfer station</span><span class="badge-demo-sm">Demo</span></label>
+              <label class="gl-toggle"><input type="checkbox" id="tog-waste-buffer" checked /> <span>Service buffers (500m)</span><span class="badge-demo-sm">Demo</span></label>
+            </div>
+          </div>
+          <div class="gl-info-panel">
+            <div class="gel-title">Route KPIs (demonstration)</div>
+            <div class="gl-kpi-grid">
+              <div class="gl-kpi"><span class="kpi-val">6</span><span class="kpi-lbl">Zones</span></div>
+              <div class="gl-kpi"><span class="kpi-val">18</span><span class="kpi-lbl">Routes</span></div>
+              <div class="gl-kpi"><span class="kpi-val">94%</span><span class="kpi-lbl">Coverage</span></div>
+              <div class="gl-kpi"><span class="kpi-val">12.4 km</span><span class="kpi-lbl">Avg route</span></div>
+            </div>
+            <div class="gl-data-note">Demonstration data for methodology illustration. Real routes are derived from OSM road network and vehicle capacity modelling per client contract area.</div>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <!-- Panel 5: Site Selection -->
+    <div class="gislab-panel" role="tabpanel" id="glp-sites" aria-labelledby="glt-sites" hidden>
+      <div class="glp-layout">
+        <div class="glp-map-wrap">
+          <div id="gl-map-sites" class="gl-map" aria-label="Site selection suitability map"></div>
+          <div class="gl-status-bar">
+            <span class="status-badge status-demo">&#9679; Demonstration</span>
+            <span>Site selection / suitability scoring — demonstration criteria weights</span>
+            <span class="status-attrib">© OpenStreetMap contributors © CARTO</span>
+          </div>
+        </div>
+        <aside class="gl-sidebar" aria-label="Site selection controls">
+          <div class="gl-sidebar-title">Site Selection</div>
+          <div class="gl-controls">
+            <div class="glc-group">
+              <div class="glc-label">Constraints &amp; criteria</div>
+              <label class="gl-toggle"><input type="checkbox" id="tog-sites-candidates" checked /> <span>Candidate parcels</span><span class="badge-demo-sm">Demo</span></label>
+              <label class="gl-toggle"><input type="checkbox" id="tog-sites-flood" checked /> <span>Flood constraint</span><span class="badge-demo-sm">Demo</span></label>
+              <label class="gl-toggle"><input type="checkbox" id="tog-sites-roads" checked /> <span>Road access</span><span class="badge-demo-sm">Demo</span></label>
+              <label class="gl-toggle"><input type="checkbox" id="tog-sites-env" checked /> <span>Env. exclusion</span><span class="badge-demo-sm">Demo</span></label>
+            </div>
+          </div>
+          <div class="gl-info-panel">
+            <div class="gel-title">Scoring matrix</div>
+            <table class="gl-score-table" aria-label="Suitability scoring matrix">
+              <thead><tr><th scope="col">Criterion</th><th scope="col">Weight</th></tr></thead>
+              <tbody>
+                <tr><td>Road access</td><td>25%</td></tr>
+                <tr><td>Flood risk (low = good)</td><td>30%</td></tr>
+                <tr><td>Utility proximity</td><td>20%</td></tr>
+                <tr><td>Slope &lt;5&#176;</td><td>15%</td></tr>
+                <tr><td>Env. exclusion</td><td>10%</td></tr>
+              </tbody>
+            </table>
+            <div class="gl-data-note">Weights are illustrative. Real projects calibrate weights through stakeholder workshops and sensitivity analysis.</div>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <!-- Panel 6: Remote Sensing -->
+    <div class="gislab-panel" role="tabpanel" id="glp-rs" aria-labelledby="glt-rs" hidden>
+      <div class="glp-layout">
+        <div class="glp-map-wrap">
+          <div id="gl-map-rs" class="gl-map" aria-label="Remote sensing methodology map"></div>
+          <div class="gl-status-bar">
+            <span class="status-badge status-ref">&#9679; Methodology reference</span>
+            <span>Remote sensing workflows — Sentinel-2 / SAR methodology demonstration</span>
+            <span class="status-attrib">© OpenStreetMap contributors © CARTO | Sentinel-2: ESA/Copernicus</span>
+          </div>
+        </div>
+        <aside class="gl-sidebar" aria-label="Remote sensing controls">
+          <div class="gl-sidebar-title">Remote Sensing</div>
+          <div class="gl-controls">
+            <div class="glc-group">
+              <div class="glc-label">Analysis layers</div>
+              <label class="gl-toggle"><input type="checkbox" id="tog-rs-pre" checked /> <span>Pre-event reference</span><span class="badge-ref">Ref</span></label>
+              <label class="gl-toggle"><input type="checkbox" id="tog-rs-post" checked /> <span>Post-event / change</span><span class="badge-ref">Ref</span></label>
+              <label class="gl-toggle"><input type="checkbox" id="tog-rs-damage" checked /> <span>Damage classification</span><span class="badge-ref">Ref</span></label>
+            </div>
+          </div>
+          <div class="gl-info-panel">
+            <div class="gel-title">Workflow</div>
+            <div class="rs-workflow">
+              <div class="rsw-step">Sentinel-2 / SAR acquisition</div>
+              <div class="rsw-arrow" aria-hidden="true">&#8595;</div>
+              <div class="rsw-step">Atmospheric correction</div>
+              <div class="rsw-arrow" aria-hidden="true">&#8595;</div>
+              <div class="rsw-step">Change detection / OBIA</div>
+              <div class="rsw-arrow" aria-hidden="true">&#8595;</div>
+              <div class="rsw-step">Damage classification</div>
+              <div class="rsw-arrow" aria-hidden="true">&#8595;</div>
+              <div class="rsw-step">Web GIS dashboard</div>
+            </div>
+            <div class="gl-data-note">Real projects use Copernicus EMS, Sentinel-2, Maxar WorldView, or Sentinel-1 SAR. Contact us to discuss imagery requirements.</div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================== SEISMIC -->
+<section id="seismic" class="section dark-section" aria-labelledby="seis-h2">
   <div class="container">
     <div class="sec-hdr">
       <span class="sec-tag">Live Intelligence</span>
-      <h2 id="seismic-h2">Global Seismic Intelligence</h2>
-      <p>Live earthquake events ingested from the USGS Earthquake Hazards Program API. Events styled by magnitude and depth using industry-standard classification thresholds.</p>
+      <h2 id="seis-h2">Seismic Hazard Intelligence</h2>
+      <p>Real-time USGS earthquake monitoring with professional GIS methodology for probabilistic seismic hazard assessment.</p>
     </div>
-
-    <!-- Visible data source chips -->
-    <div class="seismic-sources" aria-label="Data sources used in this section">
-      <span class="ss-label">Data sources:</span>
-      <a href="https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php" target="_blank" rel="noopener noreferrer" class="src-chip live">USGS Earthquake API — Live feed</a>
-      <a href="https://www.emsc-csem.org" target="_blank" rel="noopener noreferrer" class="src-chip ref">EMSC Regional Catalogue</a>
-      <a href="https://www.globalquakemodel.org/gem" target="_blank" rel="noopener noreferrer" class="src-chip meth">GEM Global Seismic Hazard</a>
-      <a href="https://openquake.org" target="_blank" rel="noopener noreferrer" class="src-chip meth">OpenQuake Methodology</a>
-    </div>
-
-    <div class="seismic-layout">
-      <div class="seismic-map-wrap">
-        <div id="seismicMap" aria-label="Live USGS earthquake map — past 7 days"></div>
-        <div class="map-meta">
-          <div class="mm-source">
-            Source: <a href="https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php" target="_blank" rel="noopener noreferrer">USGS Earthquake Hazards Program</a> · Past 7 days · Updated on page load
+    <div class="seis-layout">
+      <div class="seis-map-col">
+        <div class="source-chips" aria-label="Data sources">
+          <span class="src-chip src-live">USGS Live</span>
+          <span class="src-chip src-ref">EMSC Catalog</span>
+          <span class="src-chip src-ref">GEM Methodology</span>
+          <span class="src-chip src-ref">OpenQuake Engine</span>
+        </div>
+        <div id="seismicMap" class="seis-standalone-map" aria-label="Live seismic map"></div>
+        <div class="seis-controls-bar">
+          <label for="seismicMagFilter" class="scb-label">Min magnitude: <span id="seismicMagVal">1.0</span></label>
+          <input type="range" id="seismicMagFilter" min="1" max="7" step="0.5" value="1" aria-label="Seismic magnitude filter" />
+          <button class="btn btn-ghost btn-sm" id="seismicReset">Reset view</button>
+        </div>
+        <div class="seis-fallback" id="seismicFallback" style="display:none" role="alert">
+          Unable to load live USGS data. See <a href="https://earthquake.usgs.gov/earthquakes/map/" target="_blank" rel="noopener noreferrer">USGS Earthquake Hazards Map &#8599;</a>
+        </div>
+      </div>
+      <div class="seis-side">
+        <div class="seis-stat-block">
+          <div class="ssb-item"><span id="seisCount2">—</span><small>Events this week</small></div>
+          <div class="ssb-item"><span id="seisMax">—</span><small>Max magnitude</small></div>
+          <div class="ssb-item"><span id="seisRegion">—</span><small>Most active region</small></div>
+        </div>
+        <div class="seis-list-wrap">
+          <h3 class="seis-list-title">Recent events</h3>
+          <ul id="seismicList" class="seis-list" aria-label="Earthquake event list" aria-live="polite">
+            <li class="sl-loading">Fetching USGS data…</li>
+          </ul>
+        </div>
+        <div class="seis-methodology">
+          <h3>PSHA Methodology</h3>
+          <div class="method-flow">
+            <div class="mf-step">Earthquake Catalog</div>
+            <div class="mf-step">Declustering / Cleaning</div>
+            <div class="mf-step">Fault Distance Analysis</div>
+            <div class="mf-step">PGA / Arias Intensity</div>
+            <div class="mf-step">Newmark Displacement</div>
+            <div class="mf-step">Risk Classification</div>
+            <div class="mf-step">Dashboard / Report</div>
           </div>
-          <div class="map-legend-row" aria-label="Magnitude legend">
-            <span class="leg-head">Magnitude:</span>
-            <span class="leg-dot" style="background:#fee08b;width:8px;height:8px" aria-label="Magnitude under 3"></span><span>&lt;3</span>
-            <span class="leg-dot" style="background:#fdae61;width:12px;height:12px" aria-label="Magnitude 3 to 5"></span><span>3–5</span>
-            <span class="leg-dot" style="background:#f46d43;width:16px;height:16px" aria-label="Magnitude 5 to 6"></span><span>5–6</span>
-            <span class="leg-dot" style="background:#d73027;width:20px;height:20px" aria-label="Magnitude over 6"></span><span>&gt;6</span>
-          </div>
-          <div class="map-legend-row" aria-label="Depth legend">
-            <span class="leg-head">Depth:</span>
-            <span class="leg-depth shallow" aria-label="Shallow depth">Shallow (&lt;70 km)</span>
-            <span class="leg-depth intermediate" aria-label="Intermediate depth">Intermediate (70–300 km)</span>
-            <span class="leg-depth deep" aria-label="Deep depth">Deep (&gt;300 km)</span>
+          <div class="seis-fault-note" role="note">
+            <strong>Fault lines:</strong> Displayed only when validated active fault geometry from the
+            <a href="https://www.globalquakemodel.org/gem" target="_blank" rel="noopener noreferrer">GEM Global Active Faults Database</a>
+            or a national geological survey is specifically loaded for a client engagement.
           </div>
         </div>
       </div>
-
-      <div class="seismic-panel">
-        <div class="sp-header">
-          <h3>Recent Events</h3>
-          <div class="sp-status" id="seismicStatus" aria-live="polite" aria-atomic="true">
-            <span class="status-dot loading" aria-hidden="true"></span>
-            <span id="seismicStatusText">Connecting to USGS feed…</span>
-          </div>
-        </div>
-        <div id="seismicList" class="seismic-list" aria-label="List of recent earthquake events" aria-live="polite">
-          <div class="seismic-loading">
-            <div class="sl-spinner" aria-hidden="true"></div>
-            <p>Fetching seismic events from USGS…</p>
-          </div>
-        </div>
-        <div class="sp-footer">
-          <p class="sp-note">Magnitude classification follows <a href="https://www.usgs.gov/faqs/what-magnitude-does-earthquake-have-be-it-considered-major" target="_blank" rel="noopener noreferrer">USGS magnitude scale</a>. Depth classification per USGS earthquake terminology.</p>
-          <p class="sp-fallback-note" id="seismicFallback" style="display:none">Live feed unavailable. The USGS Earthquake API (<code>earthquake.usgs.gov</code>) provides this data when the public endpoint is reachable.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="methodology-note">
-      <h4>Seismic Hazard Methodology Note</h4>
-      <p>For site-specific probabilistic seismic hazard analysis (PSHA), GeoElite Sphere references the <a href="https://www.globalquakemodel.org" target="_blank" rel="noopener noreferrer">GEM Global Seismic Hazard Model</a>, <a href="https://www.emsc-csem.org" target="_blank" rel="noopener noreferrer">EMSC</a> regional catalogues, and OpenQuake Engine for fault source characterization and PGA computation. Hazard zone delineation follows established seismological methodology — not arbitrary polygon rendering.</p>
     </div>
   </div>
 </section>
 
-<!-- ====================================================== 3. FLOOD & CLIMATE -->
-<section id="flood-climate" class="section" aria-labelledby="flood-h2">
+<!-- ====================================================== INFRASTRUCTURE -->
+<section id="infrastructure" class="section" aria-labelledby="infra-h2">
   <div class="container">
     <div class="sec-hdr">
-      <span class="sec-tag">Climate &amp; Exposure</span>
-      <h2 id="flood-h2">Flood, Climate &amp; Exposure Analytics</h2>
-      <p>Multi-source flood hazard modeling, population exposure quantification, and climate vulnerability assessment using authoritative open datasets and recognized hydrological methodologies.</p>
+      <span class="sec-tag">Critical Systems</span>
+      <h2 id="infra-h2">Open Infrastructure Intelligence</h2>
+      <p>Power grids, transport corridors, ports, and telecom — mapped using OpenStreetMap data models and infrastructure risk methodology.</p>
     </div>
-
-    <div class="source-strip" aria-label="Authoritative data sources used">
-      <div class="src-card"><div class="src-logo">Copernicus</div><div class="src-desc">CLMS flood mapping &amp; land monitoring</div></div>
-      <div class="src-card"><div class="src-logo">JRC</div><div class="src-desc">Global Surface Water, flood hazard layers</div></div>
-      <div class="src-card"><div class="src-logo">NASA</div><div class="src-desc">LANCE FIRMS, SRTM DEM, MODIS</div></div>
-      <div class="src-card"><div class="src-logo">WorldPop</div><div class="src-desc">Population exposure grids (100m)</div></div>
-      <div class="src-card"><div class="src-logo">UNDRR</div><div class="src-desc">GAR / Sendai Framework indicators</div></div>
-    </div>
-
-    <div class="workflow-cards" aria-label="Flood analysis workflow steps">
-      <div class="wf-step reveal">
-        <div class="wf-num" aria-hidden="true">01</div>
-        <div class="wf-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true"><rect x="2" y="6" width="24" height="16" rx="2" stroke="#00d4ff" stroke-width="1.5"/><path d="M6 11h4M6 15h6" stroke="#c9a227" stroke-width="1.2"/></svg></div>
-        <h4>DEM Acquisition</h4>
-        <p>Copernicus DEM (GLO-30, 30m), SRTM, or LIDAR-derived DTM. Hydrological conditioning: pit filling, flow direction, catchment delineation (D8 algorithm).</p>
-        <div class="wf-tags"><span>Copernicus DEM</span><span>HEC-RAS</span><span>ArcGIS Pro</span></div>
-      </div>
-      <div class="wf-step reveal">
-        <div class="wf-num" aria-hidden="true">02</div>
-        <div class="wf-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M4 20Q8 12 14 16Q18 8 24 14" stroke="#00d4ff" stroke-width="1.5" fill="none"/><line x1="2" y1="22" x2="26" y2="22" stroke="#c9a227" stroke-width="1"/></svg></div>
-        <h4>Hydrological Modelling</h4>
-        <p>1D/2D hydraulic simulation (HEC-RAS, SWMM) for return-period flood extents (10yr, 50yr, 100yr, 200yr). Calibrated against gauge records or Copernicus EMS activations.</p>
-        <div class="wf-tags"><span>HEC-RAS</span><span>SWMM</span><span>QGIS</span></div>
-      </div>
-      <div class="wf-step reveal">
-        <div class="wf-num" aria-hidden="true">03</div>
-        <div class="wf-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true"><circle cx="14" cy="14" r="10" stroke="#00d4ff" stroke-width="1.5" fill="none"/><circle cx="14" cy="14" r="5" stroke="#c9a227" stroke-width="1" fill="none" opacity="0.7"/><circle cx="14" cy="14" r="2" fill="#c9a227"/></svg></div>
-        <h4>Exposure Analysis</h4>
-        <p>WorldPop 100m population grid overlay. Building footprint intersection (OSM / national cadastre). Infrastructure network exposure: roads, utilities, critical facilities.</p>
-        <div class="wf-tags"><span>WorldPop</span><span>PostGIS</span><span>Python</span></div>
-      </div>
-      <div class="wf-step reveal">
-        <div class="wf-num" aria-hidden="true">04</div>
-        <div class="wf-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true"><rect x="4" y="6" width="20" height="16" rx="2" stroke="#00d4ff" stroke-width="1.5"/><path d="M8 16l4-5 3 3 5-6" stroke="#c9a227" stroke-width="1.5" fill="none"/></svg></div>
-        <h4>Loss Estimation &amp; Reporting</h4>
-        <p>Asset vulnerability functions applied to exposure database. Expected annual losses (EAL), damage state probabilities, resilience action plan synthesis. Outputs: GIS layer package, ArcGIS Dashboard, technical report.</p>
-        <div class="wf-tags"><span>HAZUS</span><span>ArcGIS</span><span>ArcGIS Dashboards</span></div>
-      </div>
-    </div>
-
-    <div class="climate-kpis" aria-label="Standard flood risk operational metrics — illustrative categories">
-      <div class="ckpi reveal">
-        <div class="ckpi-label">Population in 100yr flood zone</div>
-        <div class="ckpi-value">WorldPop grid overlay</div>
-        <div class="ckpi-source">Source: WorldPop.org / JRC GHSL</div>
-      </div>
-      <div class="ckpi reveal">
-        <div class="ckpi-label">Building exposure count</div>
-        <div class="ckpi-value">OSM footprint intersection</div>
-        <div class="ckpi-source">Source: OpenStreetMap</div>
-      </div>
-      <div class="ckpi reveal">
-        <div class="ckpi-label">Road network at risk (km)</div>
-        <div class="ckpi-value">Network clip by hazard zone</div>
-        <div class="ckpi-source">Source: OSM / national datasets</div>
-      </div>
-      <div class="ckpi reveal">
-        <div class="ckpi-label">Critical facilities exposed</div>
-        <div class="ckpi-value">Hospitals, schools, utilities</div>
-        <div class="ckpi-source">Source: OSM / government GIS</div>
-      </div>
-    </div>
-    <p class="section-methodology-note">Metric categories shown represent standard operational outputs from flood risk assessments. Values are populated with real spatial data per project engagement — not fixed indicators.</p>
-  </div>
-</section>
-
-<!-- ====================================================== 4. INFRASTRUCTURE INTELLIGENCE -->
-<section id="infrastructure" class="section dark-section" aria-labelledby="infra-h2">
-  <div class="container">
-    <div class="sec-hdr">
-      <span class="sec-tag">Infrastructure GIS</span>
-      <h2 id="infra-h2">Infrastructure Intelligence</h2>
-      <p>Geospatial analysis of critical infrastructure networks using OpenStreetMap, Open Infrastructure Map, and authoritative national datasets — enabling network exposure assessment, corridor planning, and resilience analysis.</p>
-    </div>
-
     <div class="infra-grid">
       <div class="infra-card reveal">
-        <div class="ic-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="4" y="14" width="24" height="3" rx="1" stroke="#c9a227" stroke-width="1.5" fill="none"/><circle cx="9" cy="15.5" r="3" stroke="#c9a227" stroke-width="1.5" fill="none"/><circle cx="23" cy="15.5" r="3" stroke="#c9a227" stroke-width="1.5" fill="none"/><line x1="9" y1="4" x2="9" y2="12" stroke="#c9a227" stroke-width="1.5"/><line x1="23" y1="4" x2="23" y2="12" stroke="#c9a227" stroke-width="1.5"/><line x1="9" y1="19" x2="9" y2="28" stroke="#c9a227" stroke-width="1.5"/><line x1="23" y1="19" x2="23" y2="28" stroke="#c9a227" stroke-width="1.5"/></svg></div>
-        <h3>Power Networks</h3>
-        <p>Transmission lines, substations, generation facilities, and distribution networks. Exposure to seismic, flood, and wind hazards. Outage impact modeling using network topology analysis.</p>
-        <div class="ic-source">Data: Open Infrastructure Map · OpenStreetMap power layer</div>
-        <div class="ic-attrs"><span>Network Analyst</span><span>Topology</span><span>Exposure Modeling</span></div>
+        <div class="ic-header ic-power">
+          <svg width="24" height="24" viewBox="0 0 28 28" fill="none" aria-hidden="true"><polygon points="14,3 18,12 26,12 20,18 22,26 14,21 6,26 8,18 2,12 10,12" stroke="#f59e0b" stroke-width="1.5" fill="none"/></svg>
+          <span>Power Network</span>
+        </div>
+        <ul class="ic-items">
+          <li>Transmission lines (110–400 kV)</li>
+          <li>Substations &amp; switching stations</li>
+          <li>Generation facilities</li>
+          <li>Distribution topology</li>
+        </ul>
+        <div class="ic-source">Source: OpenStreetMap <code>power=*</code> tags</div>
       </div>
       <div class="infra-card reveal">
-        <div class="ic-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="3" y="8" width="10" height="7" rx="1" stroke="#00d4ff" stroke-width="1.5" fill="none"/><rect x="19" y="8" width="10" height="7" rx="1" stroke="#00d4ff" stroke-width="1.5" fill="none"/><path d="M13 11.5h6" stroke="#00d4ff" stroke-width="1.5"/><rect x="10" y="19" width="12" height="7" rx="1" stroke="#c9a227" stroke-width="1.5" fill="none"/><path d="M16 15.5v3.5" stroke="#c9a227" stroke-width="1.5"/></svg></div>
-        <h3>Telecom Networks</h3>
-        <p>Telecommunications towers, fiber routes, mobile base stations, and exchange points. Coverage gap analysis, last-mile connectivity, and post-disaster redundancy assessment.</p>
-        <div class="ic-source">Data: OpenStreetMap telecom layer · National regulatory datasets</div>
-        <div class="ic-attrs"><span>Coverage Analysis</span><span>Signal Modeling</span><span>Redundancy GIS</span></div>
+        <div class="ic-header ic-transport">
+          <svg width="24" height="24" viewBox="0 0 28 28" fill="none" aria-hidden="true"><rect x="4" y="10" width="20" height="8" rx="2" stroke="#00d4ff" stroke-width="1.5" fill="none"/><line x1="4" y1="18" x2="2" y2="24" stroke="#00d4ff" stroke-width="1.5"/><line x1="24" y1="18" x2="26" y2="24" stroke="#00d4ff" stroke-width="1.5"/></svg>
+          <span>Transport &amp; Ports</span>
+        </div>
+        <ul class="ic-items">
+          <li>Strategic road network</li>
+          <li>Border crossings</li>
+          <li>Port terminals &amp; anchorage</li>
+          <li>Airport proximity buffers</li>
+        </ul>
+        <div class="ic-source">Source: OpenStreetMap <code>highway=*</code>, <code>aeroway=*</code></div>
       </div>
       <div class="infra-card reveal">
-        <div class="ic-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M4 24L10 12L16 18L22 8L28 16" stroke="#c9a227" stroke-width="1.5" fill="none"/><circle cx="4" cy="24" r="2" fill="#00d4ff"/><circle cx="28" cy="16" r="2" fill="#c9a227"/></svg></div>
-        <h3>Transport Corridors</h3>
-        <p>Road, rail, port, and airport GIS. Freight corridor analysis, critical bridge identification, route redundancy assessment, and disruption impact modeling.</p>
-        <div class="ic-source">Data: OpenStreetMap roads/rail · Natural Earth transport</div>
-        <div class="ic-attrs"><span>Network Analysis</span><span>OD Matrices</span><span>Corridor Planning</span></div>
+        <div class="ic-header ic-telecom">
+          <svg width="24" height="24" viewBox="0 0 28 28" fill="none" aria-hidden="true"><circle cx="14" cy="14" r="3" fill="#a855f7"/><circle cx="14" cy="14" r="7" stroke="#a855f7" stroke-width="1" fill="none" stroke-dasharray="3 2"/><circle cx="14" cy="14" r="12" stroke="#a855f7" stroke-width="0.8" fill="none" stroke-dasharray="2 3"/></svg>
+          <span>Telecom &amp; Utility</span>
+        </div>
+        <ul class="ic-items">
+          <li>Telecom exchange nodes</li>
+          <li>Cell tower density</li>
+          <li>Water utility corridors</li>
+          <li>Fibre route methodology</li>
+        </ul>
+        <div class="ic-source">Source: OpenStreetMap <code>man_made=*</code>, <code>utility=*</code></div>
       </div>
       <div class="infra-card reveal">
-        <div class="ic-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true"><circle cx="16" cy="16" r="11" stroke="#00d4ff" stroke-width="1.5" fill="none"/><path d="M10 16Q14 10 16 16Q18 22 22 16" stroke="#c9a227" stroke-width="1.5" fill="none"/><circle cx="16" cy="16" r="2" fill="#c9a227"/></svg></div>
-        <h3>Water &amp; Sanitation</h3>
-        <p>Water supply networks, wastewater systems, treatment plants, and service areas. Pressure zone mapping, leakage detection zones, and sanitation coverage analysis.</p>
-        <div class="ic-source">Data: National utilities · OSM water infrastructure</div>
-        <div class="ic-attrs"><span>Utility GIS</span><span>Service Areas</span><span>Network Tracing</span></div>
+        <div class="ic-header ic-hazard">
+          <svg width="24" height="24" viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M14 4L26 24H2z" stroke="#ef4444" stroke-width="1.5" fill="none"/><line x1="14" y1="11" x2="14" y2="17" stroke="#ef4444" stroke-width="2"/><circle cx="14" cy="20" r="1.2" fill="#ef4444"/></svg>
+          <span>Exposure &amp; Risk</span>
+        </div>
+        <ul class="ic-items">
+          <li>Flood exposure — critical nodes</li>
+          <li>Seismic proximity to facilities</li>
+          <li>Redundancy gap analysis</li>
+          <li>Critical facility buffer zones</li>
+        </ul>
+        <div class="ic-source">Method: GIS overlay, Copernicus DEM, USGS shake data</div>
       </div>
-    </div>
-
-    <div class="infra-method reveal">
-      <h3>Infrastructure Exposure Assessment Workflow</h3>
-      <div class="im-steps">
-        <div class="im-step"><span class="im-n" aria-hidden="true">1</span><strong>Asset Inventory</strong><br>OSM extract / national cadastre import to GDB</div>
-        <div class="im-arrow" aria-hidden="true">→</div>
-        <div class="im-step"><span class="im-n" aria-hidden="true">2</span><strong>Hazard Overlay</strong><br>Flood / seismic / wind hazard zone intersection</div>
-        <div class="im-arrow" aria-hidden="true">→</div>
-        <div class="im-step"><span class="im-n" aria-hidden="true">3</span><strong>Exposure Quantification</strong><br>Length, count, value by hazard return period</div>
-        <div class="im-arrow" aria-hidden="true">→</div>
-        <div class="im-step"><span class="im-n" aria-hidden="true">4</span><strong>Criticality Ranking</strong><br>Network centrality, redundancy scoring</div>
-        <div class="im-arrow" aria-hidden="true">→</div>
-        <div class="im-step"><span class="im-n" aria-hidden="true">5</span><strong>Dashboard &amp; Report</strong><br>ArcGIS Dashboard, GIS layer package, PDF</div>
-      </div>
-      <p class="im-note">All infrastructure layers are sourced from OpenStreetMap contributors or national datasets. Open Infrastructure Map (<a href="https://openinframap.org" target="_blank" rel="noopener noreferrer">openinframap.org</a>) is referenced as a supplementary visualization tool.</p>
     </div>
   </div>
 </section>
 
-<!-- ====================================================== 5. REMOTE SENSING -->
-<section id="remote-sensing" class="section" aria-labelledby="rs-h2">
+<!-- ====================================================== REMOTE SENSING -->
+<section id="remote-sensing" class="section dark-section" aria-labelledby="rs-h2">
   <div class="container">
     <div class="sec-hdr">
       <span class="sec-tag">Earth Observation</span>
-      <h2 id="rs-h2">Remote Sensing &amp; Change Detection</h2>
-      <p>Multi-sensor satellite image processing for infrastructure mapping, damage assessment, land cover classification, and SAR-based flood mapping. Workflows follow ESA Sentinel, NASA, and Copernicus best-practice guidelines.</p>
+      <h2 id="rs-h2">Remote Sensing &amp; Damage Assessment</h2>
+      <p>Post-disaster analysis using SAR coherence, Sentinel-2 OBIA, and high-resolution optical classification — aligned with Copernicus EMS protocols.</p>
     </div>
-
     <div class="rs-layout">
-      <div class="rs-slider-wrap" aria-label="Before and after remote sensing comparison — conceptual processing visualization">
-        <div class="rs-slider" id="rsSlider" role="img" aria-label="Remote sensing change detection comparison slider">
-          <div class="rs-before" aria-hidden="true">
-            <div class="rs-label-overlay before-label">Before — Pre-Event Optical</div>
-            <div class="rs-grid-pattern before-pattern"></div>
-          </div>
-          <div class="rs-after" id="rsAfter" aria-hidden="true" style="clip-path:inset(0 50% 0 0)">
-            <div class="rs-label-overlay after-label">After — Change Detection Result</div>
-            <div class="rs-grid-pattern after-pattern"></div>
-          </div>
-          <div class="rs-handle" id="rsHandle" role="slider" aria-label="Drag to compare before and after" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" tabindex="0">
-            <div class="rs-handle-line" aria-hidden="true"></div>
-            <div class="rs-handle-btn" aria-hidden="true">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M5 8H11M5 8L7 6M5 8L7 10M11 8L9 6M11 8L9 10" stroke="white" stroke-width="1.4"/></svg>
+      <div class="rs-slider-col">
+        <div class="rs-slider-wrap">
+          <div id="rsSlider" class="rs-slider" role="img" aria-label="Remote sensing before/after comparison slider" tabindex="0">
+            <div class="rs-before">
+              <div class="rs-mock-grid before-grid" aria-hidden="true"></div>
+              <div class="rs-label-overlay">PRE-EVENT<br/><small>Reference imagery</small></div>
+            </div>
+            <div id="rsAfter" class="rs-after">
+              <div class="rs-mock-grid after-grid" aria-hidden="true"></div>
+              <div class="rs-label-overlay">POST-EVENT<br/><small>Change detection</small></div>
+            </div>
+            <div id="rsHandle" class="rs-handle" aria-label="Drag to compare">
+              <div class="rs-handle-bar" aria-hidden="true"></div>
             </div>
           </div>
-        </div>
-        <p class="rs-caption">Conceptual processing workflow visualization. Left: pre-event true-color optical composite. Right: binary change map from spectral index differencing (NDBI/NBR). Real project outputs use Sentinel-2, Maxar WorldView, or Planet imagery.</p>
-      </div>
-
-      <div class="rs-panels">
-        <div class="rs-sensor reveal">
-          <div class="rs-sensor-header"><span class="rs-sensor-name">Sentinel-1 SAR</span><span class="rs-sensor-band">C-Band · 10m</span></div>
-          <p>Dual-polarization (VV/VH) SAR backscatter analysis for flood extent mapping, surface deformation (InSAR), and structural damage proxy mapping. Cloud-independent, day/night operation.</p>
-          <div class="rs-uses"><span>Flood Mapping</span><span>InSAR Deformation</span><span>SAR Coherence</span></div>
-        </div>
-        <div class="rs-sensor reveal">
-          <div class="rs-sensor-header"><span class="rs-sensor-name">Sentinel-2 MSI</span><span class="rs-sensor-band">13 bands · 10–60m</span></div>
-          <p>Multi-spectral optical imagery for NDVI, NDWI, NDBI, land cover classification (supervised/unsupervised), vegetation health, and post-event optical change detection.</p>
-          <div class="rs-uses"><span>NDVI / NDWI / NDBI</span><span>Land Cover</span><span>Change Detection</span></div>
-        </div>
-        <div class="rs-sensor reveal">
-          <div class="rs-sensor-header"><span class="rs-sensor-name">Maxar WorldView</span><span class="rs-sensor-band">0.3–0.5m VHR</span></div>
-          <p>Sub-meter very-high-resolution optical imagery for building damage classification, post-event OBIA analysis, and infrastructure feature extraction at parcel level.</p>
-          <div class="rs-uses"><span>Damage Assessment</span><span>OBIA Classification</span><span>Feature Extraction</span></div>
-        </div>
-        <div class="rs-sensor reveal">
-          <div class="rs-sensor-header"><span class="rs-sensor-name">Google Earth Engine</span><span class="rs-sensor-band">Multi-source · Cloud</span></div>
-          <p>Cloud-based geospatial analysis platform for large-area time-series analysis, supervised classification, spectral unmixing, and GeoAI model training on Sentinel, Landsat, and MODIS archives.</p>
-          <div class="rs-uses"><span>Time-Series</span><span>GEE API</span><span>GeoAI Training</span></div>
+          <div class="rs-legend" aria-label="Damage classification legend">
+            <div class="rsl-item"><span style="background:#4ade80"></span>No damage</div>
+            <div class="rsl-item"><span style="background:#f59e0b"></span>Moderate</div>
+            <div class="rsl-item"><span style="background:#ef4444"></span>Severe / collapsed</div>
+            <div class="rsl-item"><span style="background:#7c3aed"></span>Change detected</div>
+          </div>
+          <div class="rs-slider-note">
+            Illustrative spectral pattern — real projects use Sentinel-2 (ESA), Maxar WorldView, or Sentinel-1 SAR backscatter imagery processed in ArcGIS Pro / ENVI.
+          </div>
         </div>
       </div>
-    </div>
-
-    <div class="rs-workflow reveal">
-      <h3>Damage Assessment Workflow — Post-Event Response</h3>
-      <div class="rsw-steps">
-        <div class="rsw-step"><strong>Imagery Acquisition</strong><br>Maxar Open Data / Copernicus EMS activation</div>
-        <div class="rsw-arrow" aria-hidden="true">→</div>
-        <div class="rsw-step"><strong>Pre-processing</strong><br>Orthorectification · Atmospheric correction · Cloud masking</div>
-        <div class="rsw-arrow" aria-hidden="true">→</div>
-        <div class="rsw-step"><strong>Change Detection</strong><br>Spectral indices · OBIA classification · CNN inference</div>
-        <div class="rsw-arrow" aria-hidden="true">→</div>
-        <div class="rsw-step"><strong>Damage Classification</strong><br>Destroyed / Major / Minor / No Damage (Copernicus EMS levels)</div>
-        <div class="rsw-arrow" aria-hidden="true">→</div>
-        <div class="rsw-step"><strong>Output &amp; Validation</strong><br>GIS layer package · Dashboard · Accuracy assessment</div>
+      <div class="rs-method-col">
+        <div class="rs-method-cards">
+          <div class="rs-mcard reveal">
+            <div class="rsmc-head">SAR / InSAR</div>
+            <p>Sentinel-1 coherence change and backscatter differencing for building damage mapping. InSAR displacement for infrastructure settlement monitoring.</p>
+            <div class="rsmc-tools"><span>Sentinel-1</span><span>SNAP</span><span>ENVI SARscape</span></div>
+          </div>
+          <div class="rs-mcard reveal">
+            <div class="rsmc-head">Optical OBIA</div>
+            <p>Object-based image analysis on Sentinel-2 and Maxar imagery for damage severity classification per Copernicus EMS GRADE methodology.</p>
+            <div class="rsmc-tools"><span>ArcGIS Image Analyst</span><span>eCognition</span><span>Sentinel Hub</span></div>
+          </div>
+          <div class="rs-mcard reveal">
+            <div class="rsmc-head">Spectral Indices</div>
+            <p>NDVI vegetation loss, NDWI water extent, NBR burn ratio, and NDBI built-up change detection for multi-hazard mapping.</p>
+            <div class="rsmc-tools"><span>Google Earth Engine</span><span>Python (GDAL)</span><span>ArcGIS Pro</span></div>
+          </div>
+          <div class="rs-mcard reveal">
+            <div class="rsmc-head">QA/QC &amp; Accuracy</div>
+            <p>Field-validated accuracy assessment per Copernicus EMS requirements. Confusion matrix, Kappa coefficient, and producer/user accuracy per damage class.</p>
+            <div class="rsmc-tools"><span>ArcGIS Pro</span><span>Python</span><span>Copernicus EMS</span></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ====================================================== 6. BIM-GIS -->
-<section id="bim-gis" class="section dark-section" aria-labelledby="bim-h2">
+<!-- ====================================================== BIM-GIS -->
+<section id="bim-gis" class="section" aria-labelledby="bim-h2">
   <div class="container">
     <div class="sec-hdr">
-      <span class="sec-tag">Digital Infrastructure</span>
-      <h2 id="bim-h2">BIM-GIS Integration</h2>
-      <p>Converting BIM authoring models into spatially referenced, enterprise-ready GIS layers — enabling facility management, digital twins, floor-aware indoor GIS, and lifecycle asset intelligence.</p>
+      <span class="sec-tag">Integration</span>
+      <h2 id="bim-h2">BIM to GIS Integration</h2>
+      <p>Full-stack integration from Revit/IFC building models to ArcGIS Enterprise and ArcGIS Indoors — enabling facility management, indoor navigation, and digital twin deployment.</p>
     </div>
-
-    <div class="pipeline-diagram" role="img" aria-label="BIM to GIS integration pipeline diagram">
-      <div class="pipe-stage source">
-        <div class="ps-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M4 22V10L14 5L24 10V22H4Z" stroke="#c9a227" stroke-width="1.5" fill="none"/><path d="M10 22V16H18V22" stroke="#00d4ff" stroke-width="1.5"/></svg></div>
-        <div class="ps-name">BIM Authoring</div>
-        <div class="ps-tools">Autodesk Revit<br>ArchiCAD<br>Tekla</div>
-        <div class="ps-formats">RVT · DWG · DGN</div>
+    <div class="bim-layout">
+      <div class="bim-hierarchy reveal">
+        <div class="bimh-title">BIM Data Model</div>
+        <div class="bimh-tree" role="tree" aria-label="BIM data hierarchy">
+          <div class="bimh-item bimh-root" role="treeitem">&#11043; Building</div>
+          <div class="bimh-item bimh-l1" role="treeitem">&#11043; Floor / Level</div>
+          <div class="bimh-item bimh-l2" role="treeitem">&#11043; Room / Space</div>
+          <div class="bimh-item bimh-l2" role="treeitem">&#11043; MEP System</div>
+          <div class="bimh-item bimh-l3" role="treeitem">&#11043; Asset / Equipment</div>
+          <div class="bimh-item bimh-l3" role="treeitem">&#11043; Maintenance Record</div>
+        </div>
+        <div class="bimh-standards">
+          <span>IFC 4.x</span><span>COBie</span><span>CityGML</span><span>glTF / 3D Tiles</span>
+        </div>
       </div>
-      <div class="pipe-arrow" aria-hidden="true"><svg width="32" height="16" viewBox="0 0 32 16" fill="none"><path d="M0 8H28M22 2L28 8L22 14" stroke="#c9a227" stroke-width="1.5"/></svg></div>
-      <div class="pipe-stage">
-        <div class="ps-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true"><rect x="4" y="4" width="20" height="20" rx="2" stroke="#00d4ff" stroke-width="1.5" fill="none"/><path d="M8 14h12M14 8v12" stroke="#c9a227" stroke-width="1.2"/></svg></div>
-        <div class="ps-name">Open Standards</div>
-        <div class="ps-tools">IFC (ISO 16739)<br>COBie<br>CityGML</div>
-        <div class="ps-formats">IFC · XML · GML</div>
+      <div class="bim-pipeline reveal">
+        <div class="bimp-title">Integration Pipeline</div>
+        <div class="bimp-flow" role="list">
+          <div class="bimp-step" role="listitem"><div class="bps-num">1</div><div>Revit / ArchiCAD<br/><small>Source BIM model</small></div></div>
+          <div class="bimp-arrow" aria-hidden="true">&#8594;</div>
+          <div class="bimp-step" role="listitem"><div class="bps-num">2</div><div>IFC Export<br/><small>ISO 16739</small></div></div>
+          <div class="bimp-arrow" aria-hidden="true">&#8594;</div>
+          <div class="bimp-step" role="listitem"><div class="bps-num">3</div><div>FME / Python<br/><small>Schema transform</small></div></div>
+          <div class="bimp-arrow" aria-hidden="true">&#8594;</div>
+          <div class="bimp-step" role="listitem"><div class="bps-num">4</div><div>Geodatabase<br/><small>ArcGIS Pro</small></div></div>
+          <div class="bimp-arrow" aria-hidden="true">&#8594;</div>
+          <div class="bimp-step" role="listitem"><div class="bps-num">5</div><div>ArcGIS Enterprise<br/><small>Feature services</small></div></div>
+          <div class="bimp-arrow" aria-hidden="true">&#8594;</div>
+          <div class="bimp-step" role="listitem"><div class="bps-num">6</div><div>ArcGIS Indoors<br/><small>Indoor navigation</small></div></div>
+          <div class="bimp-arrow" aria-hidden="true">&#8594;</div>
+          <div class="bimp-step" role="listitem"><div class="bps-num">7</div><div>3D Tiles / Twin<br/><small>Cesium / Dashboard</small></div></div>
+        </div>
+        <div class="bimp-attr-grid">
+          <div class="ba-item"><span class="ba-key">Standard</span><span class="ba-val">ISO 16739 IFC 4.x</span></div>
+          <div class="ba-item"><span class="ba-key">Formats</span><span class="ba-val">IFC, COBie, glTF, 3D Tiles</span></div>
+          <div class="ba-item"><span class="ba-key">Transform</span><span class="ba-val">FME Workbench / Python</span></div>
+          <div class="ba-item"><span class="ba-key">Output</span><span class="ba-val">Feature Class, Indoor dataset</span></div>
+        </div>
       </div>
-      <div class="pipe-arrow" aria-hidden="true"><svg width="32" height="16" viewBox="0 0 32 16" fill="none"><path d="M0 8H28M22 2L28 8L22 14" stroke="#c9a227" stroke-width="1.5"/></svg></div>
-      <div class="pipe-stage">
-        <div class="ps-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true"><circle cx="10" cy="14" r="5" stroke="#c9a227" stroke-width="1.5" fill="none"/><circle cx="20" cy="10" r="5" stroke="#c9a227" stroke-width="1.5" fill="none"/><line x1="14" y1="13" x2="15" y2="12" stroke="#00d4ff" stroke-width="1.5"/></svg></div>
-        <div class="ps-name">ETL &amp; Transformation</div>
-        <div class="ps-tools">FME (Safe Software)<br>ArcGIS Pro<br>Python / ArcPy</div>
-        <div class="ps-formats">Shapefile · GDB · GeoJSON</div>
+      <div class="bim-context reveal">
+        <div class="bimc-title">GIS Context Layers</div>
+        <div class="bimc-layers">
+          <div class="bimc-layer" style="--lc:#00d4ff">Building footprint (GeoJSON)</div>
+          <div class="bimc-layer" style="--lc:#c9a227">Parcel / cadastral boundary</div>
+          <div class="bimc-layer" style="--lc:#4ade80">Road access network</div>
+          <div class="bimc-layer" style="--lc:#a855f7">Utility connections</div>
+          <div class="bimc-layer" style="--lc:#f59e0b">Flood zone context</div>
+          <div class="bimc-layer" style="--lc:#ef4444">Seismic exposure</div>
+        </div>
+        <div class="bimc-note">BIM assets are georeferenced using surveyed GPS control points. IFC local coordinates are transformed to national CRS during the FME workflow.</div>
       </div>
-      <div class="pipe-arrow" aria-hidden="true"><svg width="32" height="16" viewBox="0 0 32 16" fill="none"><path d="M0 8H28M22 2L28 8L22 14" stroke="#c9a227" stroke-width="1.5"/></svg></div>
-      <div class="pipe-stage">
-        <div class="ps-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true"><rect x="3" y="3" width="22" height="22" rx="3" stroke="#00d4ff" stroke-width="1.5" fill="none"/><rect x="8" y="8" width="5" height="5" stroke="#c9a227" stroke-width="1" fill="none"/><rect x="15" y="8" width="5" height="5" stroke="#c9a227" stroke-width="1" fill="none"/><rect x="8" y="15" width="5" height="5" stroke="#c9a227" stroke-width="1" fill="none"/></svg></div>
-        <div class="ps-name">Geodatabase</div>
-        <div class="ps-tools">ArcGIS Enterprise GDB<br>PostGIS<br>SDE</div>
-        <div class="ps-formats">Feature Classes<br>Relationship Classes<br>Topology Rules</div>
-      </div>
-      <div class="pipe-arrow" aria-hidden="true"><svg width="32" height="16" viewBox="0 0 32 16" fill="none"><path d="M0 8H28M22 2L28 8L22 14" stroke="#c9a227" stroke-width="1.5"/></svg></div>
-      <div class="pipe-stage output">
-        <div class="ps-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true"><rect x="3" y="10" width="22" height="15" rx="2" stroke="#c9a227" stroke-width="1.5" fill="none"/><path d="M7 10V7a7 7 0 0114 0v3" stroke="#00d4ff" stroke-width="1.5" fill="none"/><circle cx="14" cy="17" r="3" stroke="#c9a227" stroke-width="1.5" fill="none"/></svg></div>
-        <div class="ps-name">GIS Platform</div>
-        <div class="ps-tools">ArcGIS Indoors<br>ArcGIS Enterprise<br>Cesium ion</div>
-        <div class="ps-formats">Indoor Maps<br>3D Scene Layers<br>Digital Twin</div>
-      </div>
-    </div>
-
-    <div class="bim-use-cases" aria-label="BIM-GIS use cases">
-      <div class="buc reveal"><h4>Floor-Aware Indoor GIS</h4><p>Multi-floor building models with navigable indoor space units, room-level attribute tagging, and ArcGIS Indoors indoor positioning framework.</p></div>
-      <div class="buc reveal"><h4>Asset Registry &amp; COBie</h4><p>Construction Operations Building Information Exchange (COBie) handover data ingested into spatial asset registry — enabling lifecycle facility management.</p></div>
-      <div class="buc reveal"><h4>3D Scene Layer Publishing</h4><p>I3S-compliant 3D multipatch and building scene layers published to ArcGIS Enterprise or Cesium ion for urban-scale visualization and analysis.</p></div>
-      <div class="buc reveal"><h4>Coordinate System Alignment</h4><p>Revit internal coordinates transformed to national projection systems (e.g., Lebanon LCC, Saudi Arabia UTMN) with survey control point georeferencing.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ====================================================== 7. DIGITAL TWIN -->
-<section id="digital-twin" class="section" aria-labelledby="dt-h2">
+<!-- ====================================================== DIGITAL TWIN -->
+<section id="digital-twin" class="section dark-section" aria-labelledby="dt-h2">
   <div class="container">
     <div class="sec-hdr">
-      <span class="sec-tag">Digital Twin Systems</span>
+      <span class="sec-tag">Platform</span>
       <h2 id="dt-h2">Digital Twin Architecture</h2>
-      <p>Layered digital twin systems integrating GIS base data, BIM geometry, asset registries, IoT telemetry, and simulation analytics — designed for campus, municipal, airport, and industrial facility contexts.</p>
+      <p>Integrated asset-intelligence platforms combining 3D GIS, IoT telemetry, BIM data, and real-time dashboards — for facilities, infrastructure, and urban systems.</p>
     </div>
-
     <div class="dt-layout">
-      <div class="dt-layers" aria-label="Digital twin layer architecture">
-        <div class="dt-layer reveal" style="--dl-c:#c9a227">
-          <div class="dl-badge">Layer 6</div>
-          <div class="dl-name">Simulation &amp; Analytics</div>
-          <div class="dl-desc">Agent-based evacuation modeling, energy performance simulation, predictive maintenance, scenario planning, ArcGIS Urban growth analysis</div>
-          <div class="dl-tools"><span>ArcGIS Urban</span><span>Python</span><span>AnyLogic</span></div>
-        </div>
-        <div class="dt-layer reveal" style="--dl-c:#00d4ff">
-          <div class="dl-badge">Layer 5</div>
-          <div class="dl-name">Operations Dashboard</div>
-          <div class="dl-desc">Real-time operational dashboards: occupancy zones, space utilization, work orders, maintenance scheduling, KPI tracking</div>
-          <div class="dl-tools"><span>ArcGIS Dashboards</span><span>Power BI</span><span>Experience Builder</span></div>
-        </div>
-        <div class="dt-layer reveal" style="--dl-c:#4ade80">
-          <div class="dl-badge">Layer 4</div>
-          <div class="dl-name">Sensor / IoT Integration</div>
-          <div class="dl-desc">Environmental sensors (air quality, occupancy, energy), SCADA feeds, BACnet/OPC-UA protocol bridging to GIS platform via ArcGIS Velocity</div>
-          <div class="dl-tools"><span>ArcGIS Velocity</span><span>MQTT</span><span>BACnet</span></div>
-        </div>
-        <div class="dt-layer reveal" style="--dl-c:#a855f7">
-          <div class="dl-badge">Layer 3</div>
-          <div class="dl-name">Asset Registry</div>
-          <div class="dl-desc">COBie-derived spatial asset database: equipment, systems, rooms, maintenance history. Floor-aware GIS with room polygon hierarchy.</div>
-          <div class="dl-tools"><span>ArcGIS Indoors</span><span>Enterprise GDB</span><span>COBie</span></div>
-        </div>
-        <div class="dt-layer reveal" style="--dl-c:#f97316">
-          <div class="dl-badge">Layer 2</div>
-          <div class="dl-name">BIM Geometry</div>
-          <div class="dl-desc">IFC-derived 3D multipatch feature classes, I3S scene layers, floor plans, structural elements, MEP systems — georeferenced and topology-validated</div>
-          <div class="dl-tools"><span>FME</span><span>ArcGIS Pro</span><span>Cesium ion</span></div>
-        </div>
-        <div class="dt-layer reveal" style="--dl-c:#94a3b8">
-          <div class="dl-badge">Layer 1</div>
-          <div class="dl-name">GIS Base Layer</div>
-          <div class="dl-desc">Parcel boundaries, topography, roads, utilities, administrative boundaries — the spatial context in which BIM assets are located</div>
-          <div class="dl-tools"><span>ArcGIS Enterprise</span><span>PostGIS</span><span>OSM</span></div>
+      <div class="dt-stack reveal">
+        <div class="dts-title">Layer Stack</div>
+        <div class="dts-layers" role="list" aria-label="Digital twin layer stack">
+          <div class="dtl" role="listitem">&#128506; Base map (CartoDB Dark / OSM)</div>
+          <div class="dtl" role="listitem">&#127959; 3D building models (3D Tiles / I3S)</div>
+          <div class="dtl" role="listitem">&#11043; BIM / IFC assets (facility layer)</div>
+          <div class="dtl" role="listitem">&#128225; IoT sensors (client-provided telemetry)</div>
+          <div class="dtl" role="listitem">&#9889; Infrastructure networks</div>
+          <div class="dtl" role="listitem">&#9888; Hazard exposure (flood / seismic)</div>
+          <div class="dtl" role="listitem">&#128295; Maintenance tickets (CMMS)</div>
+          <div class="dtl" role="listitem">&#128203; Field survey updates (Survey123)</div>
         </div>
       </div>
-
-      <div class="dt-usecases" aria-label="Digital twin use cases by sector">
-        <h3>Sector Applications</h3>
-        <div class="dtuc-grid">
-          <div class="dtuc reveal"><h4>Campus &amp; University</h4><p>Indoor wayfinding, space management, energy monitoring, maintenance work orders integrated with BIM floor plans.</p></div>
-          <div class="dtuc reveal"><h4>Municipality</h4><p>City-scale digital twin for infrastructure monitoring, urban planning, flood simulation, and public service dashboards.</p></div>
-          <div class="dtuc reveal"><h4>Hospital &amp; Healthcare</h4><p>Clinical zone management, HVAC monitoring, asset tracking, emergency evacuation routing, RTLS integration.</p></div>
-          <div class="dtuc reveal"><h4>Industrial Facility</h4><p>Process plant digital twin: equipment lifecycle tracking, predictive maintenance, SCADA overlay, safety zone management.</p></div>
+      <div class="dt-dashboard reveal">
+        <div class="dtd-title">Sample Dashboard Panels <span class="badge-demo-sm">Demonstration</span></div>
+        <div class="dtd-grid">
+          <div class="dtd-card">
+            <div class="dtdc-head">Asset Condition</div>
+            <div class="dtdc-val dtdc-good">92<span>%</span></div>
+            <div class="dtdc-sub">Inspected this quarter</div>
+          </div>
+          <div class="dtd-card">
+            <div class="dtdc-head">Sensor Status</div>
+            <div class="dtdc-val dtdc-warn">14<span>/18</span></div>
+            <div class="dtdc-sub">Active sensors online</div>
+          </div>
+          <div class="dtd-card">
+            <div class="dtdc-head">Risk Exposure</div>
+            <div class="dtdc-val dtdc-alert">3</div>
+            <div class="dtdc-sub">High-priority assets in flood zone</div>
+          </div>
+          <div class="dtd-card">
+            <div class="dtdc-head">Maintenance Queue</div>
+            <div class="dtdc-val dtdc-warn">7</div>
+            <div class="dtdc-sub">Pending work orders</div>
+          </div>
         </div>
-        <p class="dt-note">Digital twin deployments are labeled as workflow demonstrations unless live IoT telemetry is sourced from the client's actual systems. GeoElite Sphere does not fabricate sensor readings.</p>
+        <div class="dtd-iot-note" role="note">
+          Sample numbers for demonstration only. Live IoT / SCADA telemetry is sourced exclusively from the client's own infrastructure. GeoElite Sphere does not fabricate sensor readings.
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ====================================================== 8. SITE SELECTION -->
-<section id="site-selection" class="section dark-section" aria-labelledby="ss-h2">
+<!-- ====================================================== PROJECTS -->
+<section id="projects" class="section" aria-labelledby="proj-h2">
   <div class="container">
     <div class="sec-hdr">
-      <span class="sec-tag">Spatial Decision Support</span>
-      <h2 id="ss-h2">Site Selection &amp; Suitability Analysis</h2>
-      <p>Multi-criteria weighted overlay analysis combining topographic, hazard, infrastructure, and socioeconomic data layers using established GIS suitability modeling methodology.</p>
+      <span class="sec-tag">Case Studies</span>
+      <h2 id="proj-h2">Project Showcase</h2>
+      <p>Selected technical engagements — challenge, data, methodology, tools, and deliverables. Confidential details withheld as required.</p>
     </div>
+    <div class="proj-grid" role="list">
 
-    <div class="ss-layout">
-      <div class="ss-criteria reveal">
-        <h3>Weighted Overlay Criteria Matrix</h3>
-        <p class="ss-note">Example criteria weights for a generic commercial infrastructure siting scenario. Actual weights are calibrated per project through stakeholder consultation and sensitivity analysis.</p>
-        <table class="criteria-table" aria-label="Multi-criteria suitability analysis weights">
-          <thead><tr><th>Criterion</th><th>Data Source</th><th>Weight</th><th>Constraint</th></tr></thead>
-          <tbody>
-            <tr><td>Slope (&lt;5%)</td><td>Copernicus DEM GLO-30</td><td>15%</td><td>Hard: &gt;25% excluded</td></tr>
-            <tr><td>Flood Hazard (100yr)</td><td>JRC flood layers</td><td>20%</td><td>Hard: High zone excluded</td></tr>
-            <tr><td>Road Accessibility</td><td>OpenStreetMap</td><td>18%</td><td>Within 500m road buffer</td></tr>
-            <tr><td>Utilities Proximity</td><td>Open Infrastructure Map</td><td>12%</td><td>Within 1km power/water</td></tr>
-            <tr><td>Land Use / Zoning</td><td>National cadastre</td><td>15%</td><td>Permitted zone only</td></tr>
-            <tr><td>Protected Areas</td><td>IUCN WDPA</td><td>—</td><td>Hard: Excluded</td></tr>
-            <tr><td>Population Distance</td><td>WorldPop / GHSL</td><td>10%</td><td>Service area threshold</td></tr>
-            <tr><td>Seismic Hazard (PGA)</td><td>GEM Global Hazard Model</td><td>10%</td><td>High PGA: reduced score</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="ss-workflow reveal">
-        <h3>Six-Step Suitability Workflow</h3>
-        <div class="ssw-steps">
-          <div class="ssw-step"><div class="ssw-n" aria-hidden="true">1</div><strong>Criteria Definition</strong><p>Stakeholder workshops to define criteria, constraints, and weight priorities</p></div>
-          <div class="ssw-step"><div class="ssw-n" aria-hidden="true">2</div><strong>Data Assembly</strong><p>Raster and vector datasets acquired from authoritative sources, reprojected to common CRS</p></div>
-          <div class="ssw-step"><div class="ssw-n" aria-hidden="true">3</div><strong>Normalization</strong><p>Each raster reclassified to common score range (1–9 or 0–1). Fuzzy membership or standard reclassification</p></div>
-          <div class="ssw-step"><div class="ssw-n" aria-hidden="true">4</div><strong>Constraint Masking</strong><p>Binary exclusion masks applied before weighted sum: protected areas, flood high zones, steep slopes</p></div>
-          <div class="ssw-step"><div class="ssw-n" aria-hidden="true">5</div><strong>Weighted Overlay</strong><p>ArcGIS Spatial Analyst Weighted Overlay or raster algebra: Σ(layer_score × weight)</p></div>
-          <div class="ssw-step"><div class="ssw-n" aria-hidden="true">6</div><strong>Candidate Ranking &amp; Validation</strong><p>Top-N candidate locations ranked, validated against field survey and stakeholder review</p></div>
+      <article class="proj-card reveal" role="listitem">
+        <div class="pc-thumb">
+          <!-- Replace with: assets/projects/damage-assessment.jpg — exported ArcGIS Pro layout or dashboard screenshot -->
+          <div class="pc-thumb-placeholder" style="background:linear-gradient(135deg,#1a0000 0%,#4a1010 60%,#7f1d1d 100%)">
+            <div class="ptp-label">Post-Conflict Damage Assessment</div>
+          </div>
         </div>
-      </div>
+        <div class="pc-body">
+          <div class="pc-meta"><span class="pc-sector">Humanitarian / UN-Habitat</span><span class="pc-badge pc-conf">Methodology</span></div>
+          <h3>Post-Conflict Building Damage Assessment</h3>
+          <p>Satellite imagery interpretation, OBIA classification, and building damage mapping for post-conflict reconstruction planning.</p>
+          <div class="pc-tools"><span>Sentinel-2</span><span>ArcGIS Pro</span><span>ENVI</span><span>Copernicus EMS</span></div>
+          <button class="pc-open btn btn-ghost btn-sm" data-modal="1" aria-label="Open full case study for Post-Conflict Damage Assessment">View case study &#8594;</button>
+        </div>
+      </article>
+
+      <article class="proj-card reveal" role="listitem">
+        <div class="pc-thumb">
+          <!-- Replace with: assets/projects/municipal-gis.jpg -->
+          <div class="pc-thumb-placeholder" style="background:linear-gradient(135deg,#001428 0%,#003366 60%,#0066cc 100%)">
+            <div class="ptp-label">Municipal GIS System</div>
+          </div>
+        </div>
+        <div class="pc-body">
+          <div class="pc-meta"><span class="pc-sector">Government / Municipality</span><span class="pc-badge pc-live">Deployed</span></div>
+          <h3>Municipal GIS &amp; Field Data Collection</h3>
+          <p>ArcGIS Enterprise deployment with Survey123 household data collection, cadastral integration, utility networks, and ArcGIS Dashboards.</p>
+          <div class="pc-tools"><span>ArcGIS Enterprise</span><span>Survey123</span><span>Dashboards</span><span>FME</span></div>
+          <button class="pc-open btn btn-ghost btn-sm" data-modal="2" aria-label="Open full case study for Municipal GIS">View case study &#8594;</button>
+        </div>
+      </article>
+
+      <article class="proj-card reveal" role="listitem">
+        <div class="pc-thumb">
+          <!-- Replace with: assets/projects/solid-waste-routing.jpg -->
+          <div class="pc-thumb-placeholder" style="background:linear-gradient(135deg,#052010 0%,#064e3b 60%,#10b981 100%)">
+            <div class="ptp-label">Al Fayhaa Solid Waste GIS</div>
+          </div>
+        </div>
+        <div class="pc-body">
+          <div class="pc-meta"><span class="pc-sector">Municipal / Environment</span><span class="pc-badge pc-live">Delivered</span></div>
+          <h3>Solid Waste GIS &amp; Route Optimisation</h3>
+          <p>Al Fayhaa Union waste management GIS: service coverage analysis, vehicle routing, transfer station siting, and infrastructure planning.</p>
+          <div class="pc-tools"><span>ArcGIS Pro</span><span>Network Analyst</span><span>Python</span><span>QGIS</span></div>
+          <button class="pc-open btn btn-ghost btn-sm" data-modal="3" aria-label="Open full case study for Solid Waste GIS">View case study &#8594;</button>
+        </div>
+      </article>
+
+      <article class="proj-card reveal" role="listitem">
+        <div class="pc-thumb">
+          <!-- Replace with: assets/projects/seismic-newmark.jpg -->
+          <div class="pc-thumb-placeholder" style="background:linear-gradient(135deg,#1a0a00 0%,#7c2d12 60%,#f97316 100%)">
+            <div class="ptp-label">Seismic Hazard / Newmark</div>
+          </div>
+        </div>
+        <div class="pc-body">
+          <div class="pc-meta"><span class="pc-sector">Geotechnical / Risk</span><span class="pc-badge pc-conf">Technical Report</span></div>
+          <h3>Seismic Hazard &amp; Newmark Displacement</h3>
+          <p>DEM-based slope analysis, PGA modelling, Arias Intensity computation, and Newmark permanent displacement for landslide susceptibility mapping.</p>
+          <div class="pc-tools"><span>ArcGIS Pro</span><span>Python</span><span>USGS ShakeMap</span><span>OpenQuake</span></div>
+          <button class="pc-open btn btn-ghost btn-sm" data-modal="4" aria-label="Open full case study for Seismic Newmark">View case study &#8594;</button>
+        </div>
+      </article>
+
+      <article class="proj-card reveal" role="listitem">
+        <div class="pc-thumb">
+          <!-- Replace with: assets/projects/insar-deformation.jpg -->
+          <div class="pc-thumb-placeholder" style="background:linear-gradient(135deg,#0a001a 0%,#3b0764 60%,#7c3aed 100%)">
+            <div class="ptp-label">InSAR Deformation Analysis</div>
+          </div>
+        </div>
+        <div class="pc-body">
+          <div class="pc-meta"><span class="pc-sector">Remote Sensing / Structural</span><span class="pc-badge pc-conf">Methodology</span></div>
+          <h3>InSAR / Sentinel-1 Deformation Mapping</h3>
+          <p>Differential interferometric SAR for subsidence and deformation monitoring — interferogram processing, unwrapping, and displacement time-series.</p>
+          <div class="pc-tools"><span>Sentinel-1</span><span>SNAP</span><span>StaMPS / MintPy</span><span>ENVI SARscape</span></div>
+          <button class="pc-open btn btn-ghost btn-sm" data-modal="5" aria-label="Open full case study for InSAR">View case study &#8594;</button>
+        </div>
+      </article>
+
+      <article class="proj-card reveal" role="listitem">
+        <div class="pc-thumb">
+          <!-- Replace with: assets/projects/site-selection.jpg -->
+          <div class="pc-thumb-placeholder" style="background:linear-gradient(135deg,#001420 0%,#003350 60%,#00d4ff 100%)">
+            <div class="ptp-label">Data Center Site Selection</div>
+          </div>
+        </div>
+        <div class="pc-body">
+          <div class="pc-meta"><span class="pc-sector">Infrastructure / Energy</span><span class="pc-badge pc-live">Delivered</span></div>
+          <h3>Data Center Site Selection &amp; Suitability</h3>
+          <p>Multi-criteria GIS suitability analysis: parcel screening, flood/seismic constraint mapping, utility proximity scoring, and environmental exclusion.</p>
+          <div class="pc-tools"><span>ArcGIS Pro</span><span>Spatial Analyst</span><span>Python</span><span>PostGIS</span></div>
+          <button class="pc-open btn btn-ghost btn-sm" data-modal="6" aria-label="Open full case study for Site Selection">View case study &#8594;</button>
+        </div>
+      </article>
+
+      <article class="proj-card reveal" role="listitem">
+        <div class="pc-thumb">
+          <!-- Replace with: assets/projects/cad-to-gis.jpg -->
+          <div class="pc-thumb-placeholder" style="background:linear-gradient(135deg,#051010 0%,#06402a 60%,#059669 100%)">
+            <div class="ptp-label">CAD to GIS Conversion</div>
+          </div>
+        </div>
+        <div class="pc-body">
+          <div class="pc-meta"><span class="pc-sector">Municipal / Engineering</span><span class="pc-badge pc-live">Delivered</span></div>
+          <h3>CAD-to-GIS Municipal Conversion</h3>
+          <p>DWG/DXF cadastral and utility network conversion to enterprise geodatabase — topology cleaning, projection, schema design, and QA/QC automation.</p>
+          <div class="pc-tools"><span>ArcGIS Pro</span><span>FME</span><span>AutoCAD</span><span>Python / GDAL</span></div>
+          <button class="pc-open btn btn-ghost btn-sm" data-modal="7" aria-label="Open full case study for CAD to GIS">View case study &#8594;</button>
+        </div>
+      </article>
+
+      <article class="proj-card reveal" role="listitem">
+        <div class="pc-thumb">
+          <!-- Replace with: assets/projects/earthworks-3d.jpg -->
+          <div class="pc-thumb-placeholder" style="background:linear-gradient(135deg,#0a0a1a 0%,#1e3a5f 60%,#0369a1 100%)">
+            <div class="ptp-label">3D Terrain &amp; Earthworks</div>
+          </div>
+        </div>
+        <div class="pc-body">
+          <div class="pc-meta"><span class="pc-sector">Civil Engineering / GIS</span><span class="pc-badge pc-conf">Technical Report</span></div>
+          <h3>3D Terrain Modelling &amp; Earthworks</h3>
+          <p>CAD design surface to GIS TIN conversion, cut/fill volumetric analysis, and 3D terrain visualisation for civil engineering site planning.</p>
+          <div class="pc-tools"><span>ArcGIS Pro 3D Analyst</span><span>Civil 3D</span><span>FME</span><span>QGIS</span></div>
+          <button class="pc-open btn btn-ghost btn-sm" data-modal="8" aria-label="Open full case study for Earthworks">View case study &#8594;</button>
+        </div>
+      </article>
+
     </div>
   </div>
 </section>
 
-<!-- ====================================================== 9. WASTE GIS -->
-<section id="waste-gis" class="section" aria-labelledby="waste-h2">
+<!-- ====================================================== PROJECT MODALS -->
+<div id="modalOverlay" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Project case study" hidden>
+  <div class="modal-box" role="document">
+    <button class="modal-close" id="modalClose" aria-label="Close case study">&#10005;</button>
+    <div id="modalContent" class="modal-content"></div>
+  </div>
+</div>
+
+<!-- ====================================================== PUBLICATIONS -->
+<section id="publications" class="section dark-section" aria-labelledby="pub-h2">
   <div class="container">
     <div class="sec-hdr">
-      <span class="sec-tag">Municipal Operations</span>
-      <h2 id="waste-h2">Solid Waste Management GIS</h2>
-      <p>Location-allocation, route optimization, and operational dashboards for municipal solid waste collection systems using ArcGIS Network Analyst and spatial coverage analysis methodology.</p>
+      <span class="sec-tag">Research Library</span>
+      <h2 id="pub-h2">Publications &amp; Technical Reports</h2>
     </div>
-
-    <div class="waste-layout">
-      <div class="waste-workflow reveal">
-        <h3>GIS Implementation Workflow</h3>
-        <div class="ww-grid">
-          <div class="ww-item"><div class="ww-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2L2 7V12C2 17 7 21 12 22C17 21 22 17 22 12V7L12 2Z" stroke="#c9a227" stroke-width="1.5" fill="none"/></svg></div><strong>Asset Survey</strong><p>GPS-based field inventory of all waste collection points, bins, and transfer stations using Survey123 / Field Maps</p></div>
-          <div class="ww-item"><div class="ww-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="#00d4ff" stroke-width="1.5" fill="none"/><path d="M8 12h8M12 8v8" stroke="#c9a227" stroke-width="1.5"/></svg></div><strong>Service Area Analysis</strong><p>Catchment delineation by service zone. Coverage gap identification using Network Analyst service areas and drive-time polygons</p></div>
-          <div class="ww-item"><div class="ww-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 18L8 10L12 14L16 6L20 12" stroke="#c9a227" stroke-width="1.5" fill="none"/></svg></div><strong>Route Optimization</strong><p>Vehicle Routing Problem (VRP) solved via ArcGIS Network Analyst. Constraints: vehicle capacity, time windows, road restrictions, one-way streets</p></div>
-          <div class="ww-item"><div class="ww-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#00d4ff" stroke-width="1.5"/><path d="M7 10h3M7 14h5" stroke="#c9a227" stroke-width="1.2"/></svg></div><strong>Fleet Dashboard</strong><p>ArcGIS Dashboards integration showing route completion rate, missed collections, fleet utilization, and service request tracking</p></div>
-          <div class="ww-item"><div class="ww-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v4M3 12h4M17 12h4M12 17v4" stroke="#c9a227" stroke-width="1.5"/><circle cx="12" cy="12" r="4" stroke="#00d4ff" stroke-width="1.5" fill="none"/></svg></div><strong>Location-Allocation</strong><p>Optimal transfer station siting using P-median or minimize impedance objective. Balance collection distance vs facility cost</p></div>
-          <div class="ww-item"><div class="ww-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" stroke="#00d4ff" stroke-width="1.5"/><path d="M7 15l4-5 3 3 3-4" stroke="#c9a227" stroke-width="1.5" fill="none"/></svg></div><strong>Reporting &amp; Monitoring</strong><p>Monthly KPI reports, coverage heatmaps, citizen service request geoportal, and regulatory compliance mapping</p></div>
-        </div>
-      </div>
-
-      <div class="waste-metrics reveal">
-        <h3>Operational Metric Categories</h3>
-        <p class="waste-note">Standard dashboard indicators for municipal solid waste GIS operations. Values populated with real collection data per deployment — not fixed figures.</p>
-        <div class="wm-list">
-          <div class="wm-item"><span class="wm-label">Route completion rate</span><span class="wm-unit">% daily routes completed on schedule</span></div>
-          <div class="wm-item"><span class="wm-label">Missed collection rate</span><span class="wm-unit">% bins not collected per cycle</span></div>
-          <div class="wm-item"><span class="wm-label">Collection zone coverage</span><span class="wm-unit">% population within service area</span></div>
-          <div class="wm-item"><span class="wm-label">Fleet utilization</span><span class="wm-unit">Hours active / total fleet hours</span></div>
-          <div class="wm-item"><span class="wm-label">Transfer station load</span><span class="wm-unit">tonnes/day received vs capacity</span></div>
-          <div class="wm-item"><span class="wm-label">Service request resolution</span><span class="wm-unit">Avg. hours to close reported complaint</span></div>
-        </div>
-        <p class="wm-source">Methodology reference: <em>Solid Waste Management Optimization Using GIS Network Analysis: Al Fayhaa Union</em> — Mograby &amp; Iaaly (2022), Waste Management Research.</p>
+    <div class="pub-filters">
+      <input type="search" id="pubSearch" class="pub-search" placeholder="Search publications…" aria-label="Search publications" />
+      <div class="pub-type-btns" role="group" aria-label="Filter by publication type">
+        <button class="ptb active" data-type="all">All</button>
+        <button class="ptb" data-type="Journal">Journal</button>
+        <button class="ptb" data-type="Conference">Conference</button>
+        <button class="ptb" data-type="Report">Report</button>
+        <button class="ptb" data-type="Manuscript">Manuscript</button>
       </div>
     </div>
+    <div id="pubGrid" class="pub-grid" role="list" aria-label="Publications list" aria-live="polite"></div>
+    <p id="pubNoResults" class="no-results" style="display:none" aria-live="polite">No publications match your search.</p>
   </div>
 </section>
 
-<!-- ====================================================== 10. MUNICIPAL GIS -->
-<section id="municipal" class="section dark-section" aria-labelledby="muni-h2">
-  <div class="container">
-    <div class="sec-hdr">
-      <span class="sec-tag">Smart Municipality</span>
-      <h2 id="muni-h2">Municipal GIS Operations</h2>
-      <p>Enterprise municipal GIS covering cadastral management, utility networks, household surveys, permit tracking, and operational dashboards — designed to the ArcGIS Enterprise standards for public sector deployment.</p>
-    </div>
-
-    <div class="muni-modules" aria-label="Municipal GIS operational modules">
-      <div class="mmod reveal">
-        <div class="mmod-header" style="--mh:#c9a227"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="2" y="2" width="16" height="16" rx="1" stroke="currentColor" stroke-width="1.4" fill="none"/><path d="M6 10h8M10 6v8" stroke="currentColor" stroke-width="1"/></svg><h4>Parcel &amp; Cadastre</h4></div>
-        <ul><li>Parcel boundaries (polygon feature class)</li><li>Ownership &amp; land use attributes</li><li>Zoning overlay relationship class</li><li>Subdivision history tracking</li><li>Permit linkage by parcel ID</li></ul>
-        <div class="mmod-schema">Schema: Parcel_FC → Land_Use_Table → Permit_Table</div>
-      </div>
-      <div class="mmod reveal">
-        <div class="mmod-header" style="--mh:#00d4ff"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.4" fill="none"/><path d="M5 10Q10 6 15 10Q10 14 5 10" stroke="currentColor" stroke-width="1" fill="none" opacity="0.8"/></svg><h4>Utility Networks</h4></div>
-        <ul><li>Water distribution (pipe, valve, hydrant)</li><li>Wastewater (sewer pipe, manhole, pump)</li><li>Electrical (feeder, pole, transformer)</li><li>Telecom ducts and chambers</li><li>Network trace for isolation analysis</li></ul>
-        <div class="mmod-schema">Schema: Geometric Network / Utility Network (ArcGIS)</div>
-      </div>
-      <div class="mmod reveal">
-        <div class="mmod-header" style="--mh:#4ade80"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 16V9L10 5L16 9V16H4Z" stroke="currentColor" stroke-width="1.4" fill="none"/></svg><h4>Field Data Collection</h4></div>
-        <ul><li>Survey123 forms for household enumeration</li><li>ArcGIS Field Maps for asset inspection</li><li>Real-time sync to Enterprise GDB</li><li>Offline capability for low-connectivity areas</li><li>Photo attachment and GPS track logging</li></ul>
-        <div class="mmod-schema">Survey123 → ArcGIS Online → Enterprise Sync</div>
-      </div>
-      <div class="mmod reveal">
-        <div class="mmod-header" style="--mh:#a855f7"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="2" y="6" width="16" height="11" rx="1" stroke="currentColor" stroke-width="1.4" fill="none"/><path d="M6 6V4a4 4 0 018 0v2" stroke="currentColor" stroke-width="1.2" fill="none"/></svg><h4>Service Requests &amp; Complaints</h4></div>
-        <ul><li>Citizen-submitted service requests (web portal)</li><li>Spatial routing to field crews by zone</li><li>Work order GIS — spatially assigned</li><li>Resolution tracking with timestamps</li><li>Heatmap of complaint density by district</li></ul>
-        <div class="mmod-schema">Portal Intake → Work Order → Closure Audit</div>
-      </div>
-      <div class="mmod reveal">
-        <div class="mmod-header" style="--mh:#f97316"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M2 16L6 8L10 12L14 5L18 10" stroke="currentColor" stroke-width="1.4" fill="none"/></svg><h4>Asset Inventory</h4></div>
-        <ul><li>Streetlight inventory (point feature class)</li><li>Road condition assessment (polyline)</li><li>Park &amp; green space polygons</li><li>Public buildings and facilities</li><li>Maintenance cycle scheduling</li></ul>
-        <div class="mmod-schema">Asset_FC → Maintenance_Table → Schedule</div>
-      </div>
-      <div class="mmod reveal">
-        <div class="mmod-header" style="--mh:#ec4899"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="2" y="4" width="16" height="12" rx="1" stroke="currentColor" stroke-width="1.4" fill="none"/><path d="M5 9h5M5 12h8" stroke="currentColor" stroke-width="1" opacity="0.8"/></svg><h4>Operational Dashboard</h4></div>
-        <ul><li>ArcGIS Dashboards for mayor / manager view</li><li>Live service request map with status</li><li>KPI gauges: permit backlog, inspection rate</li><li>District-level performance metrics</li><li>Emergency notification overlay</li></ul>
-        <div class="mmod-schema">ArcGIS Dashboards / Experience Builder</div>
-      </div>
-    </div>
-    <p class="section-methodology-note">Module schemas represent standard ArcGIS Enterprise geodatabase design patterns for municipal GIS. Field names, domains, and relationship classes are customized per national standards and client requirements.</p>
-  </div>
-</section>
-
-<!-- ====================================================== 11. PUBLICATIONS -->
-<section id="publications" class="section" aria-labelledby="pub-h2">
-  <div class="container">
-    <div class="sec-hdr">
-      <span class="sec-tag">Research &amp; Knowledge</span>
-      <h2 id="pub-h2">Publications Library</h2>
-      <p>Peer-reviewed research, technical reports, and conference contributions in geospatial science, remote sensing, and GIS methodology.</p>
-    </div>
-    <div class="pub-controls" role="search" aria-label="Search and filter publications">
-      <div class="pub-search-wrap">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="4.5" stroke="#8893a8" stroke-width="1.3"/><line x1="10.5" y1="10.5" x2="14" y2="14" stroke="#8893a8" stroke-width="1.3"/></svg>
-        <input type="search" id="pubSearch" placeholder="Search publications…" aria-label="Search publications" />
-      </div>
-      <div class="pub-filter-btns" role="group" aria-label="Filter by publication type">
-        <button class="pfbtn active" data-ptype="all">All</button>
-        <button class="pfbtn" data-ptype="peer">Peer-Reviewed</button>
-        <button class="pfbtn" data-ptype="report">Technical Report</button>
-        <button class="pfbtn" data-ptype="conf">Conference</button>
-        <button class="pfbtn" data-ptype="book">Book Chapter</button>
-      </div>
-    </div>
-
-    <div class="pub-grid" id="pubGrid" role="list" aria-label="Publications">
-      <article class="pub-card reveal" data-ptype="peer" role="listitem">
-        <div class="pub-accent peer-accent"></div>
-        <div class="pub-top"><span class="pub-badge peer">Peer-Reviewed</span><span class="pub-year">2023</span></div>
-        <h3>Seismic Hazard and Landslide Susceptibility Assessment Using GIS-Based Multi-Criteria Analysis</h3>
-        <p class="pub-authors">Mervana Mograby, Dr. Amal Iaaly</p>
-        <p class="pub-venue">Journal of Geohazards and Environment</p>
-        <p class="pub-abs">Multi-criteria GIS analysis combining topographic, geological, and seismological datasets to produce integrated hazard maps for infrastructure planning in hilly terrain.</p>
-        <div class="pub-tags"><span>Seismic GIS</span><span>MCDA</span><span>Landslide</span><span>ArcGIS Pro</span></div>
-        <div class="pub-btns"><span class="pub-doi">DOI: Placeholder — submission pending</span><a href="#contact" class="pub-link">Request Preprint</a></div>
-      </article>
-
-      <article class="pub-card reveal" data-ptype="report" role="listitem">
-        <div class="pub-accent report-accent"></div>
-        <div class="pub-top"><span class="pub-badge report">Technical Report</span><span class="pub-year">2022</span></div>
-        <h3>Municipal GIS Implementation Framework for Small and Medium Municipalities in Lebanon</h3>
-        <p class="pub-authors">Dr. Amal Iaaly, Mervana Mograby</p>
-        <p class="pub-venue">GeoElite Sphere / ESCWA Affiliate Report</p>
-        <p class="pub-abs">Systematic framework for deploying municipal GIS systems including geodatabase design, field data collection workflows, ArcGIS Enterprise configuration, and staff training protocols.</p>
-        <div class="pub-tags"><span>Municipal GIS</span><span>ArcGIS Enterprise</span><span>Capacity Building</span></div>
-        <div class="pub-btns"><span class="pub-doi">Internal Technical Report</span><a href="#contact" class="pub-link">Request Copy</a></div>
-      </article>
-
-      <article class="pub-card reveal" data-ptype="conf" role="listitem">
-        <div class="pub-accent conf-accent"></div>
-        <div class="pub-top"><span class="pub-badge conf">Conference Paper</span><span class="pub-year">2023</span></div>
-        <h3>Post-Conflict Satellite Damage Assessment: Methodologies and Accuracy Metrics</h3>
-        <p class="pub-authors">Mervana Mograby</p>
-        <p class="pub-venue">ISPRS Geospatial Week 2023</p>
-        <p class="pub-abs">Comparative analysis of automated and semi-automated damage detection using Maxar and Sentinel-2. OBIA classification achieved 89% accuracy across three urban conflict zones.</p>
-        <div class="pub-tags"><span>Remote Sensing</span><span>Damage Assessment</span><span>OBIA</span><span>SAR</span></div>
-        <div class="pub-btns"><span class="pub-doi">ISPRS Archives — DOI pending</span><a href="#contact" class="pub-link">Request Preprint</a></div>
-      </article>
-
-      <article class="pub-card reveal" data-ptype="report" role="listitem">
-        <div class="pub-accent report-accent"></div>
-        <div class="pub-top"><span class="pub-badge report">Technical Report</span><span class="pub-year">2024</span></div>
-        <h3>BIM-to-GIS Integration: A Practitioner's Workflow Guide</h3>
-        <p class="pub-authors">Mervana Mograby, Dr. Amal Iaaly</p>
-        <p class="pub-venue">GeoElite Sphere</p>
-        <p class="pub-abs">End-to-end workflow documentation covering IFC/Revit-to-GeoDatabase conversion, indoor/outdoor integration via ArcGIS Indoors, and enterprise deployment for urban-scale BIM-GIS projects.</p>
-        <div class="pub-tags"><span>BIM-GIS</span><span>IFC</span><span>ArcGIS Indoors</span><span>FME</span></div>
-        <div class="pub-btns"><span class="pub-doi">Technical Guide — v2.1</span><a href="#contact" class="pub-link">Request Copy</a></div>
-      </article>
-
-      <article class="pub-card reveal" data-ptype="peer" role="listitem">
-        <div class="pub-accent peer-accent"></div>
-        <div class="pub-top"><span class="pub-badge peer">Peer-Reviewed</span><span class="pub-year">2024</span></div>
-        <h3>GeoAI for Infrastructure Feature Extraction: Deep Learning on Satellite Imagery</h3>
-        <p class="pub-authors">Mervana Mograby</p>
-        <p class="pub-venue">Remote Sensing (MDPI) — under review</p>
-        <p class="pub-abs">Convolutional neural networks for automated extraction of building footprints, road networks, and utility infrastructure from high-resolution Sentinel-2 and WorldView imagery.</p>
-        <div class="pub-tags"><span>GeoAI</span><span>Deep Learning</span><span>CNN</span><span>Feature Extraction</span></div>
-        <div class="pub-btns"><span class="pub-doi">Under review — DOI pending</span><a href="#contact" class="pub-link">Request Preprint</a></div>
-      </article>
-
-      <article class="pub-card reveal" data-ptype="report" role="listitem">
-        <div class="pub-accent report-accent"></div>
-        <div class="pub-top"><span class="pub-badge report">Technical Report</span><span class="pub-year">2022</span></div>
-        <h3>Climate Flood Risk Assessment and Resilience Planning for Coastal Lebanese Municipalities</h3>
-        <p class="pub-authors">Dr. Amal Iaaly, Mervana Mograby</p>
-        <p class="pub-venue">UN Partner Technical Report</p>
-        <p class="pub-abs">Integrated flood hazard modeling combining Copernicus DEM, hydrological runoff analysis, and climate projections to assess exposure and vulnerability of coastal infrastructure.</p>
-        <div class="pub-tags"><span>Flood Risk</span><span>Climate</span><span>HEC-RAS</span><span>Copernicus</span></div>
-        <div class="pub-btns"><span class="pub-doi">Restricted distribution — request via contact</span><a href="#contact" class="pub-link">Request Copy</a></div>
-      </article>
-
-      <article class="pub-card reveal" data-ptype="book" role="listitem">
-        <div class="pub-accent book-accent"></div>
-        <div class="pub-top"><span class="pub-badge book">Book Chapter</span><span class="pub-year">2021</span></div>
-        <h3>Spatial Data Infrastructure and SDG Monitoring: A Geostatistical Approach for Arab Countries</h3>
-        <p class="pub-authors">Dr. Amal Iaaly</p>
-        <p class="pub-venue">Advances in Geospatial Science for Development (ESCWA)</p>
-        <p class="pub-abs">Framework for using national spatial data infrastructure to monitor SDG indicators, with geostatistical methodologies applied across Arab region national statistical systems.</p>
-        <div class="pub-tags"><span>SDG</span><span>Geostatistics</span><span>ESCWA</span><span>National GIS</span></div>
-        <div class="pub-btns"><span class="pub-doi">ESCWA publication — DOI: 978-92-1-200120-4</span><a href="#contact" class="pub-link">Request Chapter</a></div>
-      </article>
-
-      <article class="pub-card reveal" data-ptype="peer" role="listitem">
-        <div class="pub-accent peer-accent"></div>
-        <div class="pub-top"><span class="pub-badge peer">Peer-Reviewed</span><span class="pub-year">2022</span></div>
-        <h3>Solid Waste Management Optimization Using GIS Network Analysis: Al Fayhaa Union</h3>
-        <p class="pub-authors">Mervana Mograby, Dr. Amal Iaaly</p>
-        <p class="pub-venue">Waste Management Research</p>
-        <p class="pub-abs">Location-allocation and VRP route optimization for municipal solid waste collection using ArcGIS Network Analyst, achieving 18% operational cost reduction and 31% coverage gap improvement.</p>
-        <div class="pub-tags"><span>Waste GIS</span><span>Network Analyst</span><span>VRP</span><span>Location-Allocation</span></div>
-        <div class="pub-btns"><span class="pub-doi">DOI: placeholder — submission 2022</span><a href="#contact" class="pub-link">Request Preprint</a></div>
-      </article>
-    </div>
-    <p id="pubNoResults" class="no-results" style="display:none" aria-live="polite">No publications match your search. Try different keywords or clear the filter.</p>
-  </div>
-</section>
-
-<!-- ====================================================== 12. TRAINING -->
-<section id="training" class="section dark-section" aria-labelledby="train-h2">
+<!-- ====================================================== TRAINING -->
+<section id="training" class="section" aria-labelledby="train-h2">
   <div class="container">
     <div class="sec-hdr">
       <span class="sec-tag">GeoElite Academy</span>
-      <h2 id="train-h2">GIS Training &amp; Capacity Building</h2>
-      <p>Structured professional training delivered to government agencies, engineering firms, and NGOs. All programs include hands-on exercises with real datasets.</p>
+      <h2 id="train-h2">Professional GIS Training</h2>
+      <p>Instructor-led technical training for GIS engineers, planners, and municipal staff — from open-source QGIS through enterprise ArcGIS and GeoAI workflows.</p>
     </div>
-
-    <div class="course-search-wrap" role="search" aria-label="Search courses">
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="4.5" stroke="#8893a8" stroke-width="1.3"/><line x1="10.5" y1="10.5" x2="14" y2="14" stroke="#8893a8" stroke-width="1.3"/></svg>
-      <input type="search" id="courseSearch" placeholder="Search courses…" aria-label="Search training courses" />
+    <div class="train-filters">
+      <input type="search" id="courseSearch" class="pub-search" placeholder="Search courses…" aria-label="Search courses" />
     </div>
-
-    <div class="course-grid" id="courseGrid" role="list" aria-label="Training courses">
-      <article class="course-card reveal" role="listitem" data-course="arcgis pro geoprocessing cartography geodatabase">
-        <div class="cc-bar" style="background:#c9a227"></div>
-        <div class="cc-body">
-          <div class="cc-head">
-            <h3>ArcGIS Pro for Professionals</h3>
-            <span class="cc-lvl int" aria-label="Intermediate level">Intermediate</span>
-          </div>
-          <div class="cc-meta">
-            <span>⏱ 5 Days</span><span>🖥 In-person / Remote</span><span>📜 Certificate</span>
-          </div>
-          <p>Geoprocessing workflows, spatial analysis, ModelBuilder automation, geodatabase management, and web layer publishing to ArcGIS Online.</p>
-          <div class="cc-outcomes"><strong>Learning Outcomes</strong>
-            <ul><li>Master ArcGIS Pro geoprocessing and ModelBuilder</li><li>Design production-quality cartographic outputs</li><li>Manage enterprise geodatabase schemas</li><li>Publish and manage web layers</li></ul>
-          </div>
-          <div class="cc-tools"><span>ArcGIS Pro</span><span>ArcGIS Online</span><span>ModelBuilder</span></div>
-          <a href="#contact" class="cc-cta">Request Training</a>
-        </div>
-      </article>
-
-      <article class="course-card reveal" role="listitem" data-course="BIM GIS IFC revit FME arcgis indoors integration">
-        <div class="cc-bar" style="background:#00d4ff"></div>
-        <div class="cc-body">
-          <div class="cc-head">
-            <h3>BIM-GIS Integration Masterclass</h3>
-            <span class="cc-lvl adv" aria-label="Advanced level">Advanced</span>
-          </div>
-          <div class="cc-meta"><span>⏱ 3 Days</span><span>🖥 Remote / Workshop</span><span>📜 Certificate</span></div>
-          <p>End-to-end workflow from IFC/Revit export to ArcGIS Indoors, 3D scene layer publishing, and facility management dashboard configuration.</p>
-          <div class="cc-outcomes"><strong>Learning Outcomes</strong>
-            <ul><li>Convert IFC/RVT to enterprise geodatabase</li><li>Configure ArcGIS Indoors indoor maps</li><li>Publish and style 3D building scene layers</li><li>Build facility management dashboards</li></ul>
-          </div>
-          <div class="cc-tools"><span>Revit</span><span>FME</span><span>ArcGIS Indoors</span><span>ArcGIS Pro</span></div>
-          <a href="#contact" class="cc-cta">Request Training</a>
-        </div>
-      </article>
-
-      <article class="course-card reveal" role="listitem" data-course="GeoAI deep learning satellite imagery CNN feature extraction">
-        <div class="cc-bar" style="background:#a855f7"></div>
-        <div class="cc-body">
-          <div class="cc-head">
-            <h3>GeoAI &amp; Deep Learning for GIS</h3>
-            <span class="cc-lvl adv" aria-label="Advanced level">Advanced</span>
-          </div>
-          <div class="cc-meta"><span>⏱ 4 Days</span><span>🖥 Remote</span><span>📜 Certificate</span></div>
-          <p>Apply deep learning to satellite and UAV imagery for automated building footprint extraction, road tracing, damage classification, and land cover mapping.</p>
-          <div class="cc-outcomes"><strong>Learning Outcomes</strong>
-            <ul><li>Build geospatial training datasets for CNNs</li><li>Train and validate image classification models</li><li>Run inference on Sentinel-2 and WorldView</li><li>Assess accuracy with confusion matrix / kappa</li></ul>
-          </div>
-          <div class="cc-tools"><span>ArcGIS Image Analyst</span><span>Google Earth Engine</span><span>Python</span></div>
-          <a href="#contact" class="cc-cta">Request Training</a>
-        </div>
-      </article>
-
-      <article class="course-card reveal" role="listitem" data-course="municipal GIS ArcGIS enterprise portal survey123 field maps dashboard">
-        <div class="cc-bar" style="background:#c9a227"></div>
-        <div class="cc-body">
-          <div class="cc-head">
-            <h3>Municipal GIS &amp; ArcGIS Enterprise</h3>
-            <span class="cc-lvl int" aria-label="Intermediate level">Intermediate</span>
-          </div>
-          <div class="cc-meta"><span>⏱ 5 Days</span><span>🖥 In-person</span><span>📜 Certificate</span></div>
-          <p>Municipal GIS system design, ArcGIS Enterprise portal deployment, Survey123 field collection, Field Maps, and operational dashboard configuration for local government.</p>
-          <div class="cc-outcomes"><strong>Learning Outcomes</strong>
-            <ul><li>Design municipal geodatabase schema and domains</li><li>Deploy and configure ArcGIS Enterprise portal</li><li>Build Survey123 field data collection forms</li><li>Configure ArcGIS Dashboards for operations</li></ul>
-          </div>
-          <div class="cc-tools"><span>ArcGIS Enterprise</span><span>Survey123</span><span>Field Maps</span><span>Dashboards</span></div>
-          <a href="#contact" class="cc-cta">Request Training</a>
-        </div>
-      </article>
-
-      <article class="course-card reveal" role="listitem" data-course="remote sensing damage assessment sentinel maxar change detection NDVI">
-        <div class="cc-bar" style="background:#00d4ff"></div>
-        <div class="cc-body">
-          <div class="cc-head">
-            <h3>Remote Sensing &amp; Damage Assessment</h3>
-            <span class="cc-lvl int" aria-label="Intermediate level">Intermediate</span>
-          </div>
-          <div class="cc-meta"><span>⏱ 3 Days</span><span>🖥 Remote</span><span>📜 Certificate</span></div>
-          <p>Multi-spectral image processing, spectral indices, change detection, and post-event building damage classification using Sentinel-2, Maxar, and ArcGIS Pro.</p>
-          <div class="cc-outcomes"><strong>Learning Outcomes</strong>
-            <ul><li>Process Sentinel-2 and Maxar imagery</li><li>Compute and interpret NDVI, NDWI, NDBI, NBR</li><li>Run supervised change detection workflow</li><li>Classify damage severity per Copernicus EMS levels</li></ul>
-          </div>
-          <div class="cc-tools"><span>ArcGIS Pro</span><span>ENVI</span><span>Sentinel Hub</span><span>Python</span></div>
-          <a href="#contact" class="cc-cta">Request Training</a>
-        </div>
-      </article>
-
-      <article class="course-card reveal" role="listitem" data-course="QGIS PostGIS Python GDAL automation open source">
-        <div class="cc-bar" style="background:#4ade80"></div>
-        <div class="cc-body">
-          <div class="cc-head">
-            <h3>QGIS, PostGIS &amp; Python Automation</h3>
-            <span class="cc-lvl beg" aria-label="Beginner level">Beginner</span>
-          </div>
-          <div class="cc-meta"><span>⏱ 4 Days</span><span>🖥 Remote</span><span>📜 Certificate</span></div>
-          <p>Open-source GIS stack: QGIS processing models, PostGIS spatial SQL, and Python automation with GDAL/OGR and PyQGIS for batch GIS operations.</p>
-          <div class="cc-outcomes"><strong>Learning Outcomes</strong>
-            <ul><li>Build QGIS graphical processing models</li><li>Write PostGIS spatial SQL queries and functions</li><li>Automate GIS workflows with Python and GDAL</li><li>Perform batch data conversion with OGR/GDAL</li></ul>
-          </div>
-          <div class="cc-tools"><span>QGIS</span><span>PostGIS</span><span>Python</span><span>GDAL / OGR</span></div>
-          <a href="#contact" class="cc-cta">Request Training</a>
-        </div>
-      </article>
-
-      <article class="course-card reveal" role="listitem" data-course="digital twin 3D GIS ArcGIS urban cesium scene layers BIM">
-        <div class="cc-bar" style="background:#a855f7"></div>
-        <div class="cc-body">
-          <div class="cc-head">
-            <h3>Digital Twin &amp; 3D City Modeling</h3>
-            <span class="cc-lvl adv" aria-label="Advanced level">Advanced</span>
-          </div>
-          <div class="cc-meta"><span>⏱ 3 Days</span><span>🖥 Remote / Workshop</span><span>📜 Certificate</span></div>
-          <p>Build and deploy 3D city-scale digital twins using ArcGIS Urban, 3D scene layers, Cesium ion 3D Tiles, and BIM integration pipelines.</p>
-          <div class="cc-outcomes"><strong>Learning Outcomes</strong>
-            <ul><li>Create 3D city models from GIS and BIM data</li><li>Publish I3S scene layers to ArcGIS Enterprise</li><li>Configure Cesium ion 3D tileset streaming</li><li>Integrate IoT sensor feeds into digital twin</li></ul>
-          </div>
-          <div class="cc-tools"><span>ArcGIS Urban</span><span>Cesium ion</span><span>ArcGIS Enterprise</span><span>FME</span></div>
-          <a href="#contact" class="cc-cta">Request Training</a>
-        </div>
-      </article>
-    </div>
-    <p id="courseNoResults" class="no-results" style="display:none" aria-live="polite">No courses match your search. Try different keywords.</p>
+    <div id="courseGrid" class="course-grid" role="list" aria-label="Training courses" aria-live="polite"></div>
+    <p id="courseNoResults" class="no-results" style="display:none" aria-live="polite">No courses match your search.</p>
   </div>
 </section>
 
-<!-- ====================================================== 13. BOOKS -->
-<section id="books" class="section" aria-labelledby="books-h2">
+<!-- ====================================================== BOOKS -->
+<section id="books" class="section dark-section" aria-labelledby="books-h2">
   <div class="container">
     <div class="sec-hdr">
       <span class="sec-tag">Knowledge Products</span>
-      <h2 id="books-h2">Books, Guides &amp; Publications</h2>
-      <p>Field-tested technical handbooks written from real project engagements — not textbooks.</p>
+      <h2 id="books-h2">Books, Guides &amp; Handbooks</h2>
+      <p>Field-tested technical references written from real project engagements — not textbooks.</p>
     </div>
-
     <div class="books-grid">
       <article class="book-card reveal">
-        <div class="book-cover" style="background:linear-gradient(135deg,#0a1628 0%,#1a3a5c 100%)">
-          <div class="bc-publisher">GeoElite Sphere</div>
+        <div class="book-cover" style="background:linear-gradient(145deg,#0a1628 0%,#1a3a5c 100%)">
+          <div class="bc-pub">GeoElite Sphere</div>
           <div class="bc-title">BIM-GIS Integration Playbook</div>
-          <div class="bc-subtitle">IFC · FME · ArcGIS Indoors · Digital Twin</div>
+          <div class="bc-sub">IFC &middot; FME &middot; ArcGIS Indoors &middot; Digital Twin</div>
           <div class="bc-badge">Practitioner Edition</div>
         </div>
         <div class="book-info">
           <h3>BIM-GIS Integration Playbook</h3>
           <p class="bi-authors">Mervana Mograby &amp; Dr. Amal Iaaly</p>
-          <p>The complete practitioner's guide to merging BIM and GIS workflows — from IFC/Revit export through FME transformation to enterprise geodatabase and ArcGIS Indoors deployment.</p>
-          <div class="bi-topics"><span>IFC / COBie</span><span>FME Workbench</span><span>ArcGIS Indoors</span><span>Georeferencing</span><span>Facility Management</span></div>
+          <p>Complete practitioner's guide — IFC/Revit export through FME transformation to enterprise geodatabase and ArcGIS Indoors deployment.</p>
+          <div class="bi-topics"><span>IFC / COBie</span><span>FME Workbench</span><span>ArcGIS Indoors</span></div>
           <div class="bi-btns"><a href="#contact" class="btn btn-gold btn-sm">Request Copy</a><a href="#contact" class="btn btn-ghost btn-sm">Sample Chapter</a></div>
         </div>
       </article>
-
       <article class="book-card reveal">
-        <div class="book-cover" style="background:linear-gradient(135deg,#052010 0%,#064e3b 100%)">
-          <div class="bc-publisher">GeoElite Sphere</div>
+        <div class="book-cover" style="background:linear-gradient(145deg,#052010 0%,#064e3b 100%)">
+          <div class="bc-pub">GeoElite Sphere</div>
           <div class="bc-title">Municipal GIS Implementation Guide</div>
-          <div class="bc-subtitle">Geodatabase Design · Field Collection · Dashboards</div>
+          <div class="bc-sub">Geodatabase &middot; Field Collection &middot; Dashboards</div>
           <div class="bc-badge">Government Edition</div>
         </div>
         <div class="book-info">
           <h3>Municipal GIS Implementation Guide</h3>
           <p class="bi-authors">Dr. Amal Iaaly</p>
-          <p>Step-by-step framework for deploying municipal GIS systems — from requirements analysis through geodatabase schema design, Survey123 form configuration, and ArcGIS Dashboards deployment.</p>
-          <div class="bi-topics"><span>ArcGIS Enterprise</span><span>Survey123</span><span>Cadastre</span><span>Utility Networks</span><span>Dashboards</span></div>
+          <p>Step-by-step framework for municipal GIS deployment — geodatabase schema, Survey123 configuration, and ArcGIS Dashboards.</p>
+          <div class="bi-topics"><span>ArcGIS Enterprise</span><span>Survey123</span><span>Utility Networks</span></div>
           <div class="bi-btns"><a href="#contact" class="btn btn-gold btn-sm">Request Copy</a><a href="#contact" class="btn btn-ghost btn-sm">Sample Chapter</a></div>
         </div>
       </article>
-
       <article class="book-card reveal">
-        <div class="book-cover" style="background:linear-gradient(135deg,#1a0a3d 0%,#3b0764 100%)">
-          <div class="bc-publisher">GeoElite Sphere</div>
+        <div class="book-cover" style="background:linear-gradient(145deg,#1a0a3d 0%,#3b0764 100%)">
+          <div class="bc-pub">GeoElite Sphere</div>
           <div class="bc-title">GeoAI for Infrastructure Mapping</div>
-          <div class="bc-subtitle">Deep Learning · Sentinel · Feature Extraction</div>
+          <div class="bc-sub">Deep Learning &middot; Sentinel &middot; Feature Extraction</div>
           <div class="bc-badge">Technical Guide</div>
         </div>
         <div class="book-info">
           <h3>GeoAI for Infrastructure Mapping</h3>
           <p class="bi-authors">Mervana Mograby</p>
-          <p>Practical deep learning workflows for automated extraction of building footprints, road networks, and utility infrastructure from Sentinel-2 and high-resolution commercial imagery.</p>
-          <div class="bi-topics"><span>CNN / U-Net</span><span>Google Earth Engine</span><span>ArcGIS Image Analyst</span><span>Accuracy Assessment</span></div>
+          <p>Deep learning workflows for automated extraction of building footprints, roads, and utility infrastructure from satellite imagery.</p>
+          <div class="bi-topics"><span>CNN / U-Net</span><span>Google Earth Engine</span><span>ArcGIS Image Analyst</span></div>
           <div class="bi-btns"><a href="#contact" class="btn btn-gold btn-sm">Request Copy</a><a href="#contact" class="btn btn-ghost btn-sm">Sample Chapter</a></div>
         </div>
       </article>
-
       <article class="book-card reveal">
-        <div class="book-cover" style="background:linear-gradient(135deg,#2a0808 0%,#7f1d1d 100%)">
-          <div class="bc-publisher">GeoElite Sphere</div>
+        <div class="book-cover" style="background:linear-gradient(145deg,#2a0808 0%,#7f1d1d 100%)">
+          <div class="bc-pub">GeoElite Sphere</div>
           <div class="bc-title">Remote Sensing for Damage Assessment</div>
-          <div class="bc-subtitle">SAR · Optical · OBIA · Post-Disaster GIS</div>
+          <div class="bc-sub">SAR &middot; Optical &middot; OBIA &middot; Post-Disaster GIS</div>
           <div class="bc-badge">Field Methods Guide</div>
         </div>
         <div class="book-info">
           <h3>Remote Sensing for Damage Assessment</h3>
           <p class="bi-authors">Mervana Mograby</p>
-          <p>Post-disaster analysis methodologies using SAR coherence, Sentinel-1 backscatter change, and high-resolution optical OBIA classification for building damage severity mapping.</p>
-          <div class="bi-topics"><span>Sentinel-1 SAR</span><span>InSAR Coherence</span><span>OBIA</span><span>Copernicus EMS</span><span>Loss Estimation</span></div>
+          <p>Post-disaster analysis using SAR coherence, Sentinel-1 backscatter change, and OBIA for damage severity mapping.</p>
+          <div class="bi-topics"><span>Sentinel-1 SAR</span><span>InSAR Coherence</span><span>Copernicus EMS</span></div>
           <div class="bi-btns"><a href="#contact" class="btn btn-gold btn-sm">Request Copy</a><a href="#contact" class="btn btn-ghost btn-sm">Sample Chapter</a></div>
         </div>
       </article>
-
       <article class="book-card reveal">
-        <div class="book-cover" style="background:linear-gradient(135deg,#001428 0%,#003366 100%)">
-          <div class="bc-publisher">GeoElite Sphere / ESCWA</div>
+        <div class="book-cover" style="background:linear-gradient(145deg,#001428 0%,#003366 100%)">
+          <div class="bc-pub">GeoElite Sphere / ESCWA</div>
           <div class="bc-title">Digital Statistical Atlas Handbook</div>
-          <div class="bc-subtitle">Geostatistics · SDG Monitoring · National GIS</div>
+          <div class="bc-sub">Geostatistics &middot; SDG Monitoring &middot; National GIS</div>
           <div class="bc-badge">Policy &amp; Research</div>
         </div>
         <div class="book-info">
           <h3>Digital Statistical Atlas Handbook</h3>
           <p class="bi-authors">Dr. Amal Iaaly</p>
-          <p>Geostatistical methodologies for national spatial data infrastructure and SDG indicator monitoring, with case studies from Arab region national statistical systems.</p>
-          <div class="bi-topics"><span>SDG Indicators</span><span>ESDA</span><span>National GIS</span><span>ESCWA Framework</span><span>Spatial Statistics</span></div>
+          <p>Geostatistical methodologies for national spatial data infrastructure and SDG indicator monitoring, with Arab region case studies.</p>
+          <div class="bi-topics"><span>SDG Indicators</span><span>ESDA</span><span>ESCWA Framework</span></div>
+          <div class="bi-btns"><a href="#contact" class="btn btn-gold btn-sm">Request Copy</a><a href="#contact" class="btn btn-ghost btn-sm">Sample Chapter</a></div>
+        </div>
+      </article>
+      <article class="book-card reveal">
+        <div class="book-cover" style="background:linear-gradient(145deg,#0a1a0a 0%,#1a4a2a 100%)">
+          <div class="bc-pub">GeoElite Sphere</div>
+          <div class="bc-title">ArcGIS Enterprise Deployment Handbook</div>
+          <div class="bc-sub">Architecture &middot; Security &middot; Portal &middot; Federation</div>
+          <div class="bc-badge">Internal Guide</div>
+        </div>
+        <div class="book-info">
+          <h3>ArcGIS Enterprise Deployment Handbook</h3>
+          <p class="bi-authors">Dr. Amal Iaaly &amp; Mervana Mograby</p>
+          <p>On-premises and cloud ArcGIS Enterprise architecture — portal configuration, security hardening, federated server setup, and capacity planning.</p>
+          <div class="bi-topics"><span>ArcGIS Enterprise</span><span>Portal</span><span>Security</span></div>
           <div class="bi-btns"><a href="#contact" class="btn btn-gold btn-sm">Request Copy</a><a href="#contact" class="btn btn-ghost btn-sm">Sample Chapter</a></div>
         </div>
       </article>
@@ -973,131 +1000,111 @@
   </div>
 </section>
 
-<!-- ====================================================== 14. EXPERTS -->
-<section id="experts" class="section dark-section" aria-labelledby="experts-h2">
+<!-- ====================================================== EXPERTS -->
+<section id="experts" class="section" aria-labelledby="exp-h2">
   <div class="container">
     <div class="sec-hdr">
       <span class="sec-tag">Our Leadership</span>
-      <h2 id="experts-h2">The Experts Behind GeoElite Sphere</h2>
-      <p>Senior geospatial specialists combining deep technical GIS engineering with academic research and strategic advisory experience.</p>
+      <h2 id="exp-h2">The Experts Behind GeoElite Sphere</h2>
     </div>
     <div class="experts-grid">
       <article class="expert-card reveal">
-        <div class="ex-avatar"><div class="ex-ring gold-ring" aria-hidden="true"></div><div class="ex-ini gold-ini">MM</div><div class="ex-dot" aria-label="Available"></div></div>
+        <div class="ex-avatar"><div class="ex-ring gold-ring" aria-hidden="true"></div><div class="ex-ini gold-ini">MM</div></div>
         <div class="ex-info">
           <h3>Mervana Mograby</h3>
-          <p class="ex-role">Civil &amp; GIS Engineer · Remote Sensing Specialist</p>
-          <p class="ex-bio">Civil and GIS Engineer specializing in satellite imagery analysis, BIM-GIS integration, infrastructure mapping, seismic/geotechnical risk GIS, GeoAI, and Python-based QA/QC automation. Technical lead for remote sensing, damage assessment, and 3D GIS deliverables.</p>
-          <div class="ex-skills"><span>ArcGIS Pro / Online</span><span>Remote Sensing</span><span>BIM-GIS</span><span>GeoAI</span><span>Python / GDAL</span><span>QGIS</span><span>Damage Assessment</span><span>SAR / InSAR</span></div>
-          <a href="https://www.linkedin.com/in/mervana-mograby" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm ex-linkedin">LinkedIn Profile ↗</a>
+          <p class="ex-role">Civil &amp; GIS Engineer &middot; Remote Sensing Specialist</p>
+          <p class="ex-bio">Civil and GIS engineer specialising in satellite imagery analysis, BIM-GIS integration, infrastructure mapping, seismic/geotechnical risk GIS, GeoAI, and Python-based QA/QC automation.</p>
+          <div class="ex-skills">
+            <span>ArcGIS Pro / Online</span><span>Remote Sensing</span><span>BIM-GIS</span><span>GeoAI</span>
+            <span>Python / GDAL</span><span>QGIS</span><span>SAR / InSAR</span><span>Damage Assessment</span>
+          </div>
+          <a href="https://www.linkedin.com/in/mervana-mograby" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm ex-linkedin">LinkedIn &#8599;</a>
         </div>
       </article>
       <article class="expert-card reveal">
-        <div class="ex-avatar"><div class="ex-ring cyan-ring" aria-hidden="true"></div><div class="ex-ini cyan-ini">AI</div><div class="ex-dot" aria-label="Available"></div></div>
+        <div class="ex-avatar"><div class="ex-ring cyan-ring" aria-hidden="true"></div><div class="ex-ini cyan-ini">AI</div></div>
         <div class="ex-info">
           <h3>Dr. Amal Iaaly</h3>
-          <p class="ex-role">National GIS Expert · Assistant Professor · GeoAI Strategist</p>
-          <p class="ex-bio">Senior GIS strategist and academic with extensive experience in ArcGIS Enterprise implementation, municipal GIS governance, capacity building, and UN-affiliated advisory (ESCWA). Leads strategic engagements, institutional GIS development, and regional research programmes.</p>
-          <div class="ex-skills"><span>ArcGIS Enterprise</span><span>Municipal GIS</span><span>GeoAI Strategy</span><span>GIS Governance</span><span>ESCWA / UN</span><span>Capacity Building</span><span>SDG Geostatistics</span><span>Academic Research</span></div>
-          <a href="https://www.linkedin.com/in/dr-amal-iaaly" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm ex-linkedin">LinkedIn Profile ↗</a>
+          <p class="ex-role">National GIS Expert &middot; Assistant Professor &middot; GeoAI Strategist</p>
+          <p class="ex-bio">Senior GIS strategist and academic with extensive experience in ArcGIS Enterprise implementation, municipal GIS governance, capacity building, and UN-affiliated advisory (ESCWA).</p>
+          <div class="ex-skills">
+            <span>ArcGIS Enterprise</span><span>Municipal GIS</span><span>GeoAI Strategy</span><span>GIS Governance</span>
+            <span>ESCWA / UN</span><span>Capacity Building</span><span>SDG Geostatistics</span><span>Academic Research</span>
+          </div>
+          <a href="https://www.linkedin.com/in/dr-amal-iaaly" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm ex-linkedin">LinkedIn &#8599;</a>
         </div>
       </article>
     </div>
   </div>
 </section>
 
-<!-- ====================================================== DATA ACCURACY & SOURCES -->
+<!-- ====================================================== DATA ACCURACY -->
 <section id="data-accuracy" class="section dark-section" aria-labelledby="da-h2">
   <div class="container">
     <div class="sec-hdr">
       <span class="sec-tag">Transparency</span>
-      <h2 id="da-h2">Data Accuracy &amp; Sources</h2>
-      <p>GeoElite Sphere clearly distinguishes between live data feeds, authoritative open reference datasets, workflow demonstrations, and client-provided GIS layers. No data is fabricated or used as a placeholder.</p>
+      <h2 id="da-h2">Data Sources &amp; Accuracy</h2>
+      <p>GeoElite Sphere distinguishes between live feeds, open reference datasets, workflow demonstrations, and client-provided layers. No data is fabricated.</p>
     </div>
-
-    <div class="da-grid">
-      <div class="da-card live-card reveal">
-        <div class="da-badge live-badge">Live / Real-time</div>
-        <h3>Live Data Feeds</h3>
-        <p>Fetched on page load from public APIs. Accuracy and availability are those of the source provider. These are not static or invented.</p>
-        <ul>
-          <li>
-            <strong>USGS Earthquake Hazards Program</strong> — Global seismic events, past 7 days. Fetched from the public GeoJSON feed at earthquake.usgs.gov on every page load. Earthquake locations, magnitudes, and focal depths are as reported by USGS seismograph networks.
-            <br><a href="https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php" target="_blank" rel="noopener noreferrer">earthquake.usgs.gov/earthquakes/feed ↗</a>
-          </li>
-        </ul>
-      </div>
-
-      <div class="da-card ref-card reveal">
-        <div class="da-badge ref-badge">Open Reference Datasets</div>
-        <h3>Authoritative Open Datasets</h3>
-        <p>Publicly available datasets referenced in methodology panels. Accessed per project via official data portals — not live-streamed on this page.</p>
-        <ul>
-          <li>Copernicus DEM GLO-30 &amp; CLMS flood layers — European Space Agency / European Commission</li>
-          <li>JRC Global Surface Water / GHSL — European Commission Joint Research Centre</li>
-          <li>WorldPop 100m population grids — University of Southampton</li>
-          <li>Natural Earth vector data — public domain</li>
-          <li>OpenStreetMap — ODbL license, OSM contributors</li>
-          <li>Open Infrastructure Map — OSM power/telecom layers</li>
-          <li>GEM Global Seismic Hazard Model — globalquakemodel.org</li>
-          <li>EMSC Seismological Catalogue — emsc-csem.org</li>
-          <li>IUCN World Database of Protected Areas (WDPA)</li>
-          <li>NASA SRTM DEM, LANCE FIRMS, MODIS — earthdata.nasa.gov</li>
-        </ul>
-      </div>
-
-      <div class="da-card demo-card reveal">
-        <div class="da-badge demo-badge">Workflow Demonstration</div>
-        <h3>Demonstrative Visualizations</h3>
-        <p>Conceptual diagrams and process illustrations representing standard GIS methodology. Not derived from a specific project dataset — applicable to real client data when engaged.</p>
-        <ul>
-          <li><strong>Remote Sensing comparison slider</strong> — Illustrative spectral pattern grid. Real projects use Sentinel-2 (ESA), Maxar WorldView, or SAR backscatter imagery.</li>
-          <li><strong>BIM-GIS pipeline diagram</strong> — Workflow architecture based on ISO 16739 IFC standard. Actual pipelines are built in FME and ArcGIS Pro per project.</li>
-          <li><strong>Digital Twin layer stack</strong> — Systems architecture reference. Live IoT / SCADA telemetry is sourced exclusively from the client's own infrastructure. GeoElite Sphere does not fabricate sensor readings.</li>
-          <li><strong>Site Selection criteria matrix</strong> — Example weight distribution for a generic scenario. Real projects calibrate weights through stakeholder consultation and sensitivity analysis.</li>
-          <li><strong>Hero globe city markers</strong> — Representative project and partner locations. Data source: Natural Earth (public domain), Globe.gl (MIT license).</li>
-        </ul>
-      </div>
-
-      <div class="da-card client-card reveal">
-        <div class="da-badge client-badge">Client-Provided Layers</div>
-        <h3>Client-Provided GIS Data</h3>
-        <p>The following layer types are required from the client or national data custodian. GeoElite Sphere does not substitute these with generic or invented data.</p>
-        <ul>
-          <li>Cadastral parcel boundaries and land ownership records</li>
-          <li>Municipal utility network geometry (water supply, sewer, electrical distribution, telecom)</li>
-          <li>Building permits, planning applications, and zoning files</li>
-          <li>Facility asset registries and maintenance history (COBie / EAM exports)</li>
-          <li>Live IoT and SCADA sensor telemetry for digital twin deployments</li>
-          <li>National active fault catalogues (for site-specific PSHA)</li>
-          <li>Classified or restricted infrastructure locations</li>
-          <li>Survey GPS control points for BIM georeferencing</li>
-        </ul>
-      </div>
+    <div class="ds-table-wrap">
+      <table class="ds-table" aria-label="Data sources and accuracy reference table">
+        <thead>
+          <tr>
+            <th scope="col">Dataset / Source</th>
+            <th scope="col">Use on this site</th>
+            <th scope="col">Status</th>
+            <th scope="col">Update</th>
+            <th scope="col">Attribution</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>USGS Earthquake API</td><td>Live seismic map, event list, statistics</td><td><span class="dst-badge dst-live">Live</span></td><td>Real-time</td><td><a href="https://earthquake.usgs.gov" target="_blank" rel="noopener noreferrer">USGS EHP</a></td></tr>
+          <tr><td>EMSC Earthquake Catalog</td><td>Methodology reference — not live-streamed</td><td><span class="dst-badge dst-ref">Reference</span></td><td>On demand</td><td><a href="https://www.emsc-csem.org" target="_blank" rel="noopener noreferrer">EMSC</a></td></tr>
+          <tr><td>GEM Global Active Faults</td><td>Policy reference — no fault lines without upload</td><td><span class="dst-badge dst-req">Req. upload</span></td><td>Per project</td><td><a href="https://www.globalquakemodel.org/gem" target="_blank" rel="noopener noreferrer">GEM Foundation</a></td></tr>
+          <tr><td>OpenStreetMap</td><td>Base tiles (via CARTO), infrastructure model</td><td><span class="dst-badge dst-ref">Reference</span></td><td>Continuous</td><td>© OSM contributors (ODbL)</td></tr>
+          <tr><td>CARTO Dark Matter tiles</td><td>All MapLibre map backgrounds</td><td><span class="dst-badge dst-live">Live tiles</span></td><td>Continuous</td><td><a href="https://carto.com/attributions" target="_blank" rel="noopener noreferrer">© CARTO</a></td></tr>
+          <tr><td>Copernicus Sentinel-2 / DEM</td><td>Methodology reference, remote sensing section</td><td><span class="dst-badge dst-ref">Reference</span></td><td>Per project</td><td><a href="https://www.copernicus.eu" target="_blank" rel="noopener noreferrer">ESA / EC</a></td></tr>
+          <tr><td>Landsat (USGS)</td><td>Methodology reference</td><td><span class="dst-badge dst-ref">Reference</span></td><td>Per project</td><td><a href="https://earthexplorer.usgs.gov" target="_blank" rel="noopener noreferrer">USGS / NASA</a></td></tr>
+          <tr><td>IFC / BIM models</td><td>Workflow reference — actual models are client-provided</td><td><span class="dst-badge dst-client">Client</span></td><td>Per project</td><td>ISO 16739 IFC standard</td></tr>
+          <tr><td>CityGML / 3D Tiles</td><td>Digital twin architecture reference</td><td><span class="dst-badge dst-ref">Reference</span></td><td>Per project</td><td>OGC standards</td></tr>
+          <tr><td>Municipal cadastral layers</td><td>Demo data — real projects require client cadastral GIS</td><td><span class="dst-badge dst-client">Client</span></td><td>Per project</td><td>National cadastral authority</td></tr>
+          <tr><td>GIS Lab demo GeoJSON</td><td>Infrastructure, municipal, waste, site selection demos</td><td><span class="dst-badge dst-demo">Demo</span></td><td>Static</td><td>GeoElite Sphere — methodology illustration</td></tr>
+          <tr><td>Natural Earth (Globe)</td><td>3D globe country polygons and boundaries</td><td><span class="dst-badge dst-ref">Reference</span></td><td>Static</td><td><a href="https://www.naturalearthdata.com" target="_blank" rel="noopener noreferrer">Natural Earth (public domain)</a></td></tr>
+        </tbody>
+      </table>
     </div>
-
+    <div class="da-cards-grid">
+      <div class="da-card live-card reveal"><div class="dac-badge dac-live">Live</div><h3>Live Feeds</h3><p>USGS earthquake API fetched on page load. Map tiles streamed from CARTO. Not static, not invented.</p></div>
+      <div class="da-card demo-card reveal"><div class="dac-badge dac-demo">Demonstration</div><h3>Workflow Demonstrations</h3><p>GIS Lab demo layers use embedded GeoJSON illustrating standard methodology. Labelled on every panel.</p></div>
+      <div class="da-card ref-card reveal"><div class="dac-badge dac-ref">Reference</div><h3>Open Reference Datasets</h3><p>Copernicus, Sentinel, Landsat, GEM, EMSC, Natural Earth — referenced in methodology. Accessed per project.</p></div>
+      <div class="da-card client-card reveal"><div class="dac-badge dac-client">Client-Provided</div><h3>Client Data Required</h3><p>Cadastral parcels, utility networks, BIM models, IoT / SCADA telemetry, and survey control points are always sourced from the client. GeoElite Sphere does not fabricate these.</p></div>
+    </div>
     <div class="da-fault-note" role="note">
-      <strong>Seismic Fault Line Policy:</strong> This platform does not display seismic fault lines unless validated active fault geometry from the <a href="https://www.globalquakemodel.org/gem" target="_blank" rel="noopener noreferrer">GEM Global Active Faults Database</a> or a national geological survey is specifically loaded for a client engagement. Fault line delineation requires a peer-reviewed active fault catalogue — not a generic polygon layer. For probabilistic seismic hazard analysis (PSHA), GeoElite Sphere references <a href="https://openquake.org" target="_blank" rel="noopener noreferrer">GEM OpenQuake Engine methodology</a> and the <a href="https://www.emsc-csem.org" target="_blank" rel="noopener noreferrer">EMSC regional seismicity catalogue</a>.
+      <strong>Fault Line Policy:</strong> This platform displays no seismic fault lines unless validated active fault geometry from the
+      <a href="https://www.globalquakemodel.org/gem" target="_blank" rel="noopener noreferrer">GEM Global Active Faults Database</a>
+      or a peer-reviewed national geological survey catalogue is specifically loaded. PSHA methodology references
+      <a href="https://openquake.org" target="_blank" rel="noopener noreferrer">GEM OpenQuake Engine</a> and the
+      <a href="https://www.emsc-csem.org" target="_blank" rel="noopener noreferrer">EMSC seismicity catalogue</a>.
     </div>
   </div>
 </section>
 
-<!-- ====================================================== 15. CONTACT -->
+<!-- ====================================================== CONTACT -->
 <section id="contact" class="section" aria-labelledby="contact-h2">
   <div class="container">
     <div class="contact-layout">
       <div class="contact-left">
         <span class="sec-tag">Get in Touch</span>
         <h2 id="contact-h2">Ready to Build Your<br><em>Spatial Intelligence Capability?</em></h2>
-        <p>Whether scoping a new GIS platform, integrating BIM with GIS, mapping flood risk, or training your team — we'd be glad to discuss your project requirements.</p>
+        <p>Whether scoping a new GIS platform, integrating BIM with GIS, mapping flood risk, or training your team — we'd be glad to discuss your project.</p>
         <div class="cinfo-list">
           <div class="cinfo-item">
-            <div class="ci-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M14 3H4a1 1 0 00-1 1v8a1 1 0 001 1h4l2 2 2-2h4a1 1 0 001-1V4a1 1 0 00-1-1z" stroke="#c9a227" stroke-width="1.2" fill="none"/></svg></div>
+            <div class="ci-icon" aria-hidden="true">&#9993;</div>
             <div><span class="ci-lbl">Email</span><a href="mailto:info@geoelitesphere.com" class="ci-val">info@geoelitesphere.com</a></div>
           </div>
           <div class="cinfo-item">
-            <div class="ci-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M9 2C6.24 2 4 4.24 4 7c0 4 5 9 5 9s5-5 5-9c0-2.76-2.24-5-5-5z" stroke="#c9a227" stroke-width="1.2" fill="none"/><circle cx="9" cy="7" r="1.8" fill="#00d4ff" opacity="0.8"/></svg></div>
-            <div><span class="ci-lbl">Location</span><span class="ci-val">Beirut, Lebanon · Remote &amp; International</span></div>
+            <div class="ci-icon" aria-hidden="true">&#128205;</div>
+            <div><span class="ci-lbl">Location</span><span class="ci-val">Beirut, Lebanon &middot; Remote &amp; International</span></div>
           </div>
         </div>
       </div>
@@ -1108,23 +1115,35 @@
             <div class="cform-group"><label for="cf-email">Email *</label><input type="email" id="cf-email" name="email" placeholder="your@email.com" required autocomplete="email" /><span class="cferr" role="alert"></span></div>
           </div>
           <div class="cform-row">
-            <div class="cform-group"><label for="cf-org">Organization</label><input type="text" id="cf-org" name="org" placeholder="Company or institution" autocomplete="organization" /></div>
+            <div class="cform-group"><label for="cf-org">Organisation</label><input type="text" id="cf-org" name="org" placeholder="Company or institution" autocomplete="organization" /></div>
             <div class="cform-group"><label for="cf-loc">Project Location</label><input type="text" id="cf-loc" name="location" placeholder="Country or region" /></div>
           </div>
           <div class="cform-row">
-            <div class="cform-group"><label for="cf-svc">Service Needed *</label>
+            <div class="cform-group">
+              <label for="cf-svc">Service Needed *</label>
               <select id="cf-svc" name="service" required>
                 <option value="" disabled selected>Select a service…</option>
-                <option>BIM to GIS Integration</option><option>CAD to GIS Conversion</option><option>ArcGIS Enterprise / Online</option><option>Municipal GIS System</option><option>Flood / Climate Risk Mapping</option><option>Digital Twin / 3D GIS</option><option>Remote Sensing / Damage Assessment</option><option>GeoAI / Deep Learning</option><option>Seismic / Geotechnical GIS</option><option>Infrastructure Exposure Analysis</option><option>Solid Waste GIS / Route Optimization</option><option>Site Selection / Suitability Analysis</option><option>QA/QC Automation</option><option>GIS Training / Capacity Building</option><option>Other / Multiple Services</option>
+                <option>BIM to GIS Integration</option><option>CAD to GIS Conversion</option>
+                <option>ArcGIS Enterprise / Online</option><option>Municipal GIS System</option>
+                <option>Flood / Climate Risk Mapping</option><option>Digital Twin / 3D GIS</option>
+                <option>Remote Sensing / Damage Assessment</option><option>GeoAI / Deep Learning</option>
+                <option>Seismic / Geotechnical GIS</option><option>Infrastructure Exposure Analysis</option>
+                <option>Solid Waste GIS / Route Optimisation</option><option>Site Selection / Suitability Analysis</option>
+                <option>QA/QC Automation</option><option>GIS Training / Capacity Building</option>
+                <option>Other / Multiple Services</option>
               </select><span class="cferr" role="alert"></span>
             </div>
-            <div class="cform-group"><label for="cf-bud">Budget Range</label>
+            <div class="cform-group">
+              <label for="cf-bud">Budget Range</label>
               <select id="cf-bud" name="budget"><option value="" disabled selected>Select range…</option><option>Under $5,000</option><option>$5,000–$15,000</option><option>$15,000–$50,000</option><option>$50,000–$150,000</option><option>$150,000+</option><option>Prefer not to say</option></select>
             </div>
           </div>
-          <div class="cform-group"><label for="cf-msg">Message *</label><textarea id="cf-msg" name="message" rows="5" placeholder="Describe your project, objectives, and any relevant context…" required></textarea><span class="cferr" role="alert"></span></div>
+          <div class="cform-group"><label for="cf-msg">Message *</label><textarea id="cf-msg" name="message" rows="4" placeholder="Describe your project, objectives, and any relevant context…" required></textarea><span class="cferr" role="alert"></span></div>
           <button type="submit" class="btn btn-gold btn-full"><span class="btn-txt">Send Consultation Request</span><span class="btn-spin" aria-hidden="true"></span></button>
-          <div class="cform-success" id="formSuccess" style="display:none" role="status" aria-live="polite"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="9" stroke="#00d4ff" stroke-width="1.5"/><path d="M7 11l3 3 5-5" stroke="#00d4ff" stroke-width="2"/></svg><p>Thank you — we'll be in touch within 1–2 business days.</p></div>
+          <div class="cform-success" id="formSuccess" style="display:none" role="status" aria-live="polite">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="9" stroke="#00d4ff" stroke-width="1.5"/><path d="M7 11l3 3 5-5" stroke="#00d4ff" stroke-width="2"/></svg>
+            <p>Thank you — we'll be in touch within 1–2 business days.</p>
+          </div>
         </form>
       </div>
     </div>
@@ -1141,38 +1160,44 @@
           <span class="logo-name">GeoElite<span class="gold"> Sphere</span></span>
         </a>
         <p>Geospatial intelligence for infrastructure, resilience, and urban systems. Serving governments, municipalities, NGOs, and engineering firms across the MENA region and internationally.</p>
-        <p class="ft-loc">Beirut, Lebanon · Remote &amp; International</p>
+        <p class="ft-loc">Beirut, Lebanon &middot; Remote &amp; International</p>
       </div>
-      <nav class="footer-nav" aria-label="Platform sections"><h4>Platform</h4><ul><li><a href="#seismic">Live Seismic Feed</a></li><li><a href="#flood-climate">Flood &amp; Climate</a></li><li><a href="#infrastructure">Infrastructure GIS</a></li><li><a href="#remote-sensing">Remote Sensing</a></li><li><a href="#bim-gis">BIM-GIS</a></li><li><a href="#digital-twin">Digital Twin</a></li></ul></nav>
-      <nav class="footer-nav" aria-label="Knowledge sections"><h4>Knowledge</h4><ul><li><a href="#publications">Publications</a></li><li><a href="#training">Training Academy</a></li><li><a href="#books">Books &amp; Guides</a></li><li><a href="#municipal">Municipal GIS</a></li><li><a href="#waste-gis">Waste GIS</a></li><li><a href="#experts">Our Experts</a></li><li><a href="#data-accuracy">Data &amp; Sources</a></li></ul></nav>
+      <nav class="footer-nav" aria-label="GIS Lab sections"><h4>GIS Lab</h4><ul>
+        <li><a href="#gislab">Live GIS Lab</a></li><li><a href="#seismic">Seismic Intelligence</a></li>
+        <li><a href="#infrastructure">Infrastructure Map</a></li><li><a href="#remote-sensing">Remote Sensing</a></li>
+        <li><a href="#bim-gis">BIM-GIS</a></li><li><a href="#digital-twin">Digital Twin</a></li>
+      </ul></nav>
+      <nav class="footer-nav" aria-label="Knowledge sections"><h4>Knowledge</h4><ul>
+        <li><a href="#projects">Projects</a></li><li><a href="#publications">Publications</a></li>
+        <li><a href="#training">Training</a></li><li><a href="#books">Books &amp; Guides</a></li>
+        <li><a href="#experts">Our Experts</a></li><li><a href="#data-accuracy">Data &amp; Sources</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul></nav>
       <div class="footer-attrib-col">
         <h4>Open Data Sources</h4>
         <ul class="footer-attrib">
           <li><a href="https://earthquake.usgs.gov" target="_blank" rel="noopener noreferrer">USGS Earthquake Hazards Program</a></li>
           <li><a href="https://www.copernicus.eu" target="_blank" rel="noopener noreferrer">Copernicus Programme (ESA / EC)</a></li>
-          <li><a href="https://jeodpp.jrc.ec.europa.eu" target="_blank" rel="noopener noreferrer">JRC — European Commission</a></li>
-          <li><a href="https://www.worldpop.org" target="_blank" rel="noopener noreferrer">WorldPop (Univ. of Southampton)</a></li>
           <li><a href="https://www.openstreetmap.org" target="_blank" rel="noopener noreferrer">OpenStreetMap contributors (ODbL)</a></li>
-          <li><a href="https://www.naturalearthdata.com" target="_blank" rel="noopener noreferrer">Natural Earth (public domain)</a></li>
-          <li><a href="https://www.emsc-csem.org" target="_blank" rel="noopener noreferrer">EMSC — European-Mediterranean Seismological Centre</a></li>
-          <li><a href="https://www.globalquakemodel.org/gem" target="_blank" rel="noopener noreferrer">GEM Global Seismic Hazard Model</a></li>
-          <li><a href="https://openinframap.org" target="_blank" rel="noopener noreferrer">Open Infrastructure Map (OSM-based)</a></li>
           <li><a href="https://carto.com/attributions" target="_blank" rel="noopener noreferrer">CARTO basemap tiles</a></li>
-          <li><a href="https://leafletjs.com" target="_blank" rel="noopener noreferrer">Leaflet.js (BSD-2-Clause)</a></li>
+          <li><a href="https://www.emsc-csem.org" target="_blank" rel="noopener noreferrer">EMSC Seismological Centre</a></li>
+          <li><a href="https://www.globalquakemodel.org/gem" target="_blank" rel="noopener noreferrer">GEM Global Seismic Hazard Model</a></li>
+          <li><a href="https://www.naturalearthdata.com" target="_blank" rel="noopener noreferrer">Natural Earth (public domain)</a></li>
           <li><a href="https://globe.gl" target="_blank" rel="noopener noreferrer">Globe.gl (MIT) — vasturiano</a></li>
+          <li><a href="https://maplibre.org" target="_blank" rel="noopener noreferrer">MapLibre GL JS (BSD-3-Clause)</a></li>
         </ul>
-        <p class="footer-live-note">Live data (USGS feed) depends on public API availability. All external data subject to respective provider terms. This platform is hosted on GitHub Pages as a static site — no backend, no proprietary APIs.</p>
+        <p class="footer-live-note">Live data depends on public API availability. This platform is hosted on GitHub Pages as a static site — no backend, no proprietary APIs.</p>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2025 GeoElite Sphere. All rights reserved.</p>
-      <p>GIS · BIM-GIS · GeoAI · Digital Twins · Remote Sensing · Disaster Risk Intelligence</p>
+      <p>&#169; 2025 GeoElite Sphere. All rights reserved.</p>
+      <p>GIS &middot; BIM-GIS &middot; GeoAI &middot; Digital Twins &middot; Remote Sensing &middot; Disaster Risk Intelligence</p>
     </div>
   </div>
 </footer>
 
 <!-- ====================================================== SCRIPTS -->
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+<script src="https://unpkg.com/maplibre-gl@4.5.2/dist/maplibre-gl.js" crossorigin=""></script>
 <script src="https://unpkg.com/globe.gl@2.30.0/dist/globe.gl.min.js"></script>
 <script src="script.js"></script>
 </body>
